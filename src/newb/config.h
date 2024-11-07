@@ -28,11 +28,21 @@
 */
 
 /* Color correction */
+<<<<<<< HEAD
 #define NL_TONEMAP_TYPE 3            // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.25                // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 0.8            // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 0.9          // [toggle] 0.0 grayscale ~ 4.0 super saturated
 //#define NL_TINT vec3(1.0,0.75,0.5) // [toggle] color overlay
+=======
+#define NL_TONEMAP_TYPE 3              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
+#define NL_GAMMA 1.33                  // 0.3 low ~ 2.0 high
+//#define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
+//#define NL_SATURATION 1.4            // [toggle] 0.0 grayscale ~ 4.0 super saturated
+//#define NL_TINT                      // [toggle] enable light/dark tone tinting
+#define NL_TINT_LOW  vec3(0.3,0.5,1.4) // color tint for dark tone
+#define NL_TINT_HIGH vec3(1.4,0.7,0.3) // color tint for light tone
+>>>>>>> 9b63106d5672c76e7d65e6e46989bb540f55b431
 
 /* Terrain lighting */
 #define NL_SUN_INTENSITY 2.35   // 0.5 weak ~ 5.0 bright
@@ -165,6 +175,9 @@
 #define NL_GROUND_RAIN_PUDDLES 0.7 // 0.0 no puddles ~ 1.0 puddles
 //#define NL_GROUND_AURORA_REFL    // [toggle] aurora reflection on ground
 
+/* Actor */
+#define NL_ACTOR_BRIGHTNESS     0.65 // 0.1 dark ~ 1.6 bright
+#define NL_ACTOR_EDGE_HIGHLIGHT 0.41 // 0.0 no highlight ~ 1.6 bright highlight
 
 /*
   NEWB SHADER SUBPACK CONFIG
