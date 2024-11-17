@@ -9,8 +9,9 @@ https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "756a334a-86e3-4803-81ed-eef96abc8a18" # Use https://www.uuidgenerator.net/version4
-materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
+uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
+materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
+
 
 [info] 
 copyright = '''
