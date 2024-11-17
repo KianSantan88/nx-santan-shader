@@ -1,15 +1,15 @@
 name = "Newb X Santan"
-version = [0, 15, 1]
+version = [0, 15, 15]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
-§7- A Newb edit with spectacular colors and more subtle tweaks!
+§7- §aA Newb edit with spectacular colors and more subtle tweaks!
 %v
 https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "67f83191-c8f7-4019-a85f-4b1129933bab" # Use https://www.uuidgenerator.net/version4
+uuid = "756a334a-86e3-4803-81ed-eef96abc8a18" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
 
 [info] 
@@ -23,6 +23,20 @@ credits = '''
 
 # subpacks are arranged in left to right order
 # right-most subpack is enabled by default
+
+[[subpack]]
+define = "EXPERIMENTAL"
+materials = ["RenderChunk"]
+description = '''
+Things that arent in other subpacks you will find here
+'''
+
+[[subpack]]
+define = "BOX_CLOUDS_NO_PLANT_WAVES"
+materials = ["Clouds", "RenderChunk"]
+description = '''
+Box Clouds and no folliage waves
+'''
 
 [[subpack]]
 define = "ROUNDED_CLOUDS_NO_PLANT_WAVES"
@@ -50,21 +64,6 @@ define = "DOUBLE_BOX_CLOUDS_AND_CHUNK_ANIM"
 materials = ["Clouds", "RenderChunk"]
 description = '''
 Multilayer Box Clouds and Chunk Anim! (laggey)
-'''
-
-[[subpack]]
-define = "BOX_CLOUDS_AND_CHUNK_ANIM"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-Box Clouds And Chunk Anim
-'''
-
-
-[[subpack]]
-define = "ROUNDED_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Rounded Clouds
 '''
 
 [[subpack]]

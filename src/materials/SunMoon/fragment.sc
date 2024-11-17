@@ -4,7 +4,6 @@ $input v_texcoord0, v_pos
 
 #ifndef INSTANCING
   #include <newb/config.h>
-  #include <newb/functions/tonemap.h>
 
   uniform vec4 SunMoonColor;
   uniform vec4 ViewPositionAndTime;
@@ -28,10 +27,10 @@ void main() {
     bool isMoon = ts.x > ts.y;
     if (isMoon) {
       uv = vec2(0.25,0.5)*(floor(uv*vec2(4.0,2.0)) + 0.5 + 10.0*v_pos.xz);
-      color.rgb += g*vec3(0.21,0.01,0.52);
+      color.rgb += g*vec3(0.02,0.04,0.27);
     } else {
       uv = 0.5 + 10.0*v_pos.xz;
-      color.rgb += g*vec3(1.0,0.5,0.0);
+      color.rgb += g*vec3(1.0,0.7,0.0);
     }
 
     if (max(abs(v_pos.x),abs(v_pos.z)) < 0.5/10.0) {
@@ -39,17 +38,10 @@ void main() {
     }
 
     color.rgb *= SunMoonColor.rgb;
-<<<<<<< HEAD
 
     float tr = 1.0 - SunMoonColor.a;
     color.a = 1.0 - tr*tr*tr;
 
-=======
-    color.rgb *= 4.4*color.rgb;
-    float tr = 1.0 - SunMoonColor.a;
-    color.a *= 1.0 - tr*tr*tr;
-    color.rgb = colorCorrection(color.rgb);
->>>>>>> 9b63106d5672c76e7d65e6e46989bb540f55b431
     gl_FragColor = color;
   #else
     gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
