@@ -1,6 +1,5 @@
 # Newb X SANTAN
 
-saved for later
 
 **Newb X SANTAN** is an edit to the GLSL shader, [Newb Shader](https://github.com/devendrn/newb-shader-mcbe). Currently, only Android is supported.
 > [!WARNING]
@@ -8,6 +7,7 @@ saved for later
 
 <br>
 
+original newb screenshot, i'll change when i have enough good screenshots
 ![Screenshots](docs/screenshots.jpg "Newb X Legacy 15.47, MCBE 1.21.0")
 
 <br>
