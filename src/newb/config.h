@@ -143,8 +143,8 @@
 #define NL_AURORA_VELOCITY 0.05 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.001    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.20    // 0.04 thin line ~ 0.4 thick lines
-#define NL_AURORA_COL1 vec3(1.2,0.02,1.2)
-#define NL_AURORA_COL2 vec3(0.0,1.2,0.0)
+#define NL_AURORA_COL1 vec3(0.42,0.78,0.21)
+#define NL_AURORA_COL2 vec3(0.21,0.35,0.78)
 
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
