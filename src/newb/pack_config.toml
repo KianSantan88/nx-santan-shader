@@ -1,5 +1,5 @@
 name = "Newb X Santan"
-version = [0, 01, 01]
+version = [0, 16, 32]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "46107da0-5cec-4aa0-8f41-3ca858f90154" # Use https://www.uuidgenerator.net/version4
+uuid = "46993de0-5cec-4aa0-8f41-3ca858f90154" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 
@@ -45,6 +45,26 @@ materials = ["Clouds", "RenderChunk"]
 description = '''
 Rounded Clouds and no folliage waves
 '''
+[[subpack]]
+define = "SEPIA_TINT"
+materials = ["RenderChunk"]
+description = '''
+§6Sepia filter
+'''
+
+[[subpack]]
+define = "LAVENDER_TINT"
+materials = ["RenderChunk"]
+description = '''
+§dLavender filter
+'''
+
+[[subpack]]
+define = "NOIR_TINT"
+materials = ["RenderChunk"]
+description = '''
+§8Noir / BW filter
+'''
 
 [[subpack]]
 define = "UNOBTRUSIVE"
@@ -57,14 +77,14 @@ Unobtrusive (more things removed than no wave and fog)
 define = "DOUBLE_ROUNDED_CLOUDS_AND_CHUNK_ANIM"
 materials = ["Clouds", "RenderChunk"]
 description = '''
-Multilayer Rounded Clouds and Chunk Anim!!1! (also laggey)
+Multilayer Rounded Clouds and Chunk Anim!!1! §4(also laggey)
 '''
 
 [[subpack]]
 define = "DOUBLE_BOX_CLOUDS_AND_CHUNK_ANIM"
 materials = ["Clouds", "RenderChunk"]
 description = '''
-Multilayer Box Clouds and Chunk Anim! (laggey)
+Multilayer Box Clouds and Chunk Anim! §4(laggey)
 '''
 
 [[subpack]]
