@@ -1,5 +1,5 @@
-name = "Newb X Santan"
-version = [0, 16, 32]
+name = "Newb Santan"
+version = [0, 16, 25]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "46993de0-5cec-4aa0-8f41-3ca858f90154" # Use https://www.uuidgenerator.net/version4
+uuid = "43218de0-5cec-4aa0-8f41-3ca858f90154" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 
@@ -48,26 +48,6 @@ define = "ROUNDED_CLOUDS_NO_PLANT_WAVES"
 materials = ["Clouds", "RenderChunk"]
 description = '''
 Rounded Clouds and no folliage waves
-'''
-[[subpack]]
-define = "SEPIA_TINT"
-materials = ["RenderChunk"]
-description = '''
-§6Sepia filter
-'''
-
-[[subpack]]
-define = "LAVENDER_TINT"
-materials = ["RenderChunk"]
-description = '''
-§dLavender filter
-'''
-
-[[subpack]]
-define = "NOIR_TINT"
-materials = ["RenderChunk"]
-description = '''
-§8Noir / BW filter
 '''
 
 [[subpack]]

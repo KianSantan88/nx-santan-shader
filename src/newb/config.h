@@ -28,7 +28,7 @@
 */
 
 /* Color correction */
-#define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
+#define NL_TONEMAP_TYPE 3              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.27                  // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 0.9              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 0.9            // [toggle] 0.0 grayscale ~ 4.0 super saturated
@@ -37,17 +37,17 @@
 //#define NL_TINT_HIGH vec3(1.4,0.7,0.3) // color tint for light tone
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 2.42   // 0.5 weak ~ 5.0 bright
+#define NL_SUN_INTENSITY 2.32   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 1.2  // 0.5 weak ~ 3.0 bright
 #define NL_NIGHT_BRIGHTNESS 0.2 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS 0.1  // 0.0 dark ~ 2.0 bright
-#define NL_SHADOW_INTENSITY 0.8 // 0.0 no shadow ~ 1.0 strong shadow
+#define NL_SHADOW_INTENSITY 0.7 // 0.0 no shadow ~ 1.0 strong shadow
 //#define NL_BLINKING_TORCH     // [toggle] flickering light
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
 
 /* Sun/moon light color on terrain */
-#define NL_MORNING_SUN_COL vec3(0.99,0.72,0.15)
-#define NL_NOON_SUN_COL    vec3(1.0,0.75,0.57)
+#define NL_MORNING_SUN_COL vec3(0.99,0.76,0.19)
+#define NL_NOON_SUN_COL    vec3(1.0,0.79,0.57)
 #define NL_NIGHT_SUN_COL   vec3(0.5,0.66,1.10)
 
 /* Ambient light on terrain (light that is added everywhere) */
@@ -55,20 +55,20 @@
 #define NL_END_AMBIENT    vec3(1.98,1.25,2.3)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.53,0.17)
+#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.53,0.18)
 #define NL_UNDERWATER_TORCH_COL vec3(0.7,0.7,0.7)
 #define NL_NETHER_TORCH_COL     vec3(1.34,0.60,0.7)
 #define NL_END_TORCH_COL        vec3(1.0,0.53,0.17)
 
 /* Fog */
-#define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
-#define NL_MIST_DENSITY 0.65      // 0.0 no mist ~ 1.0 misty
-#define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
+#define NL_FOG 0.75                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
+#define NL_MIST_DENSITY 1.0      // 0.0 no mist ~ 1.0 misty
+#define NL_RAIN_MIST_OPACITY 0.5 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 #define NL_CLOUDY_FOG 0.0         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky colors - zenith=top, horizon=bottom */
-#define NL_DAY_ZENITH_COL    vec3(0.28,0.54,0.93)
-#define NL_DAY_HORIZON_COL   vec3(0.45,0.65,0.96)
+#define NL_DAY_ZENITH_COL    vec3(0.50,0.57,0.91)
+#define NL_DAY_HORIZON_COL   vec3(0.64,0.69,0.97)
 #define NL_NIGHT_ZENITH_COL  vec3(0.0,0.0,0.3)
 #define NL_NIGHT_HORIZON_COL vec3(0.0,0.0,0.6)
 #define NL_RAIN_ZENITH_COL   vec3(0.2,0.3,0.4)
@@ -96,21 +96,21 @@
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
 
 /* Water */
-#define NL_WATER_TRANSPARENCY 0.6 // 0.0 transparent ~ 1.0 normal
+#define NL_WATER_TRANSPARENCY 0.4 // 0.0 transparent ~ 1.0 normal
 #define NL_WATER_BUMP 0.06        // 0.001 plain ~ 0.2 bumpy water
-#define NL_WATER_TEX_OPACITY 0.8  // 0.0 plain water ~ 1.0 vanilla water texture
+#define NL_WATER_TEX_OPACITY 0.0  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
 #define NL_WATER_FOG_FADE         // [toggle] fog fade for water
 #define NL_WATER_CLOUD_REFLECTION // [toggle] simple clouds/aurora reflection
 //#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
-#define NL_WATER_TINT vec3(0.0,0.6,0.7)
+#define NL_WATER_TINT vec3(0.3,0.6,0.7)
 
 /* Underwater */
 #define NL_UNDERWATER_BRIGHTNESS 0.8         // 0.0 dark ~ 3.0 bright
-#define NL_CAUSTIC_INTENSITY 1.9             // 0.5 weak ~ 5.0 bright
+#define NL_CAUSTIC_INTENSITY 2.2             // 0.5 weak ~ 5.0 bright
 #define NL_UNDERWATER_WAVE 0.03               // [toggle] 0.02 subtle ~ 0.6 trippy
-#define NL_UNDERWATER_STREAKS 1.4            // [toggle] 0.8 subtle - 2.0 bright streaks from top
-#define NL_UNDERWATER_TINT vec3(0.0,0.5,0.7) // fog tint color when underwater
+#define NL_UNDERWATER_STREAKS 1.5            // [toggle] 0.8 subtle - 2.0 bright streaks from top
+#define NL_UNDERWATER_TINT vec3(0.3,0.6,0.7) // fog tint color when underwater
 
 /* Cloud type */
 #define NL_CLOUD_TYPE 1 // 0:vanilla, 1:soft, 2:rounded
@@ -122,7 +122,7 @@
 //#define NL_CLOUD0_MULTILAYER         // [toggle] extra cloud layer
 
 /* Soft cloud settings */
-#define NL_CLOUD1_SCALE vec2(0.034, 0.044) // 0.003 large ~ 0.2 tiny
+#define NL_CLOUD1_SCALE vec2(0.034, 0.042) // 0.003 large ~ 0.2 tiny
 #define NL_CLOUD1_DEPTH 1.5                // 0.0 no bump ~ 10.0 large bumps
 #define NL_CLOUD1_SPEED 0.04               // 0.0 static ~ 0.4 fast moving
 #define NL_CLOUD1_DENSITY 0.7             // 0.1 less clouds ~ 0.8 more clouds
@@ -143,19 +143,19 @@
 #define NL_AURORA_VELOCITY 0.05 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.2   // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.04    // 0.04 thin line ~ 0.4 thick lines
-#define NL_AURORA_COL1 vec3(0.42,0.78,0.21)
-#define NL_AURORA_COL2 vec3(0.21,0.35,0.78)
+#define NL_AURORA_COL1 vec3(0.41,0.01,0.85)
+#define NL_AURORA_COL2 vec3(0.08,0.56,0.96)
 
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
 #define NL_SHOOTING_STAR_PERIOD 8.0 // 0.4 fast ~ 12.0 slow (12 secs)
-#define NL_SHOOTING_STAR_DELAY 58.0 // 0.0 no delay ~ 100.0 long time (100 secs)
+#define NL_SHOOTING_STAR_DELAY 42.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Chunk loading slide in animation */
 //#define NL_CHUNK_LOAD_ANIM 100.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
 
 /* Sun/Moon */
-#define NL_SUNMOON_ANGLE 45.0 // [toggle] 0.0 no tilt ~ 90.0 tilt of 90 degrees
+#define NL_SUNMOON_ANGLE 18.0 // [toggle] 0.0 no tilt ~ 90.0 tilt of 90 degrees
 #define NL_SUNMOON_SIZE 0.75     // 0.3 tiny ~ 4.0 massive
 
 /* Fake godrays during sunrise/sunset */
@@ -182,24 +182,6 @@
   Subpack names and flags are inside `pack_config.toml`.
   Build tool will enable corresponding flags when compiling. 
 */
-#ifdef SEPIA_TINT
-  #define NL_TINT
-  #define NL_TINT_LOW  vec3(0.22, 0.16, 0.08)
-  #define NL_TINT_HIGH vec3(0.39, 0.30, 0.16)
-#endif
-
-#ifdef LAVENDER_TINT
-  #define NL_TINT
-  #define NL_TINT_LOW  vec3(0.30, 0.10, 0.50)
-  #define NL_TINT_HIGH vec3(0.75, 0.60, 0.85)
-#endif
-
-#ifdef NOIR_TINT
-  #define NL_TINT
-  #define NL_TINT_LOW  vec3(0.10, 0.10, 0.10)
-  #define NL_TINT_HIGH vec3(0.75, 0.75, 0.75)
-#endif
-
 #ifdef NO_WAVE_NO_FOG
   #define NO_WAVE
   #define NO_FOG
