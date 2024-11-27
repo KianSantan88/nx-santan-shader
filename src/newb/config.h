@@ -38,7 +38,7 @@
 
 /* Terrain lighting */
 #define NL_SUN_INTENSITY 2.32   // 0.5 weak ~ 5.0 bright
-#define NL_TORCH_INTENSITY 1.2  // 0.5 weak ~ 3.0 bright
+#define NL_TORCH_INTENSITY 1.3  // 0.5 weak ~ 3.0 bright
 #define NL_NIGHT_BRIGHTNESS 0.2 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS 0.1  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 0.7 // 0.0 no shadow ~ 1.0 strong shadow
@@ -51,14 +51,14 @@
 #define NL_NIGHT_SUN_COL   vec3(0.5,0.66,1.10)
 
 /* Ambient light on terrain (light that is added everywhere) */
-#define NL_NETHER_AMBIENT vec3(3.0,2.16,1.89)
+#define NL_NETHER_AMBIENT vec3(3.0,2.20,1.89)
 #define NL_END_AMBIENT    vec3(1.98,1.25,2.3)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.53,0.18)
+#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.57,0.19)
 #define NL_UNDERWATER_TORCH_COL vec3(0.7,0.7,0.7)
 #define NL_NETHER_TORCH_COL     vec3(1.34,0.60,0.7)
-#define NL_END_TORCH_COL        vec3(1.0,0.53,0.17)
+#define NL_END_TORCH_COL        vec3(1.0,0.57,0.19)
 
 /* Fog */
 #define NL_FOG 0.75                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
@@ -73,8 +73,8 @@
 #define NL_NIGHT_HORIZON_COL vec3(0.0,0.0,0.6)
 #define NL_RAIN_ZENITH_COL   vec3(0.2,0.3,0.4)
 #define NL_RAIN_HORIZON_COL  vec3(0.4,0.5,0.6)
-#define NL_END_ZENITH_COL    vec3(0.1,0.0,0.1)
-#define NL_END_HORIZON_COL   vec3(0.2,0.0,0.2)
+#define NL_END_ZENITH_COL    vec3(0.12,0.05,0.39)
+#define NL_END_HORIZON_COL   vec3(0.13,0.07,0.34)
 #define NL_DAWN_ZENITH_COL   vec3(2.0,0.6,0.1)
 #define NL_DAWN_HORIZON_COL  vec3(2.0,0.7,0.0)
 #define NL_DAWN_EDGE_COL     vec3(2.0,0.5,0.2)
@@ -102,15 +102,15 @@
 #define NL_WATER_WAVE             // [toggle] wave effect
 #define NL_WATER_FOG_FADE         // [toggle] fog fade for water
 #define NL_WATER_CLOUD_REFLECTION // [toggle] simple clouds/aurora reflection
-//#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
-#define NL_WATER_TINT vec3(0.3,0.6,0.7)
+#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
+#define NL_WATER_TINT vec3(0.1,0.5,0.7)
 
 /* Underwater */
 #define NL_UNDERWATER_BRIGHTNESS 0.8         // 0.0 dark ~ 3.0 bright
-#define NL_CAUSTIC_INTENSITY 2.2             // 0.5 weak ~ 5.0 bright
+#define NL_CAUSTIC_INTENSITY 2.4             // 0.5 weak ~ 5.0 bright
 #define NL_UNDERWATER_WAVE 0.03               // [toggle] 0.02 subtle ~ 0.6 trippy
 #define NL_UNDERWATER_STREAKS 1.5            // [toggle] 0.8 subtle - 2.0 bright streaks from top
-#define NL_UNDERWATER_TINT vec3(0.3,0.6,0.7) // fog tint color when underwater
+#define NL_UNDERWATER_TINT vec3(0.1,0.5,0.7) // fog tint color when underwater
 
 /* Cloud type */
 #define NL_CLOUD_TYPE 1 // 0:vanilla, 1:soft, 2:rounded
@@ -133,18 +133,18 @@
 #define NL_CLOUD2_RAIN_THICKNESS 2.8 // 0.5 slim ~ 5.0 fat
 #define NL_CLOUD2_STEPS 6            // 3 low quality ~ 16 high quality
 #define NL_CLOUD2_SCALE 0.056        // 0.003 large ~ 0.3 tiny
-#define NL_CLOUD2_SHAPE 0.65          // 0.0 round ~ 1.0 box
-#define NL_CLOUD2_DENSITY 70.0       // 1.0 blurry ~ 100.0 sharp
+#define NL_CLOUD2_SHAPE 0.40          // 0.0 round ~ 1.0 box
+#define NL_CLOUD2_DENSITY 80.0       // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_VELOCITY 0.8       // 0.0 static ~ 4.0 very fast
 //#define NL_CLOUD2_MULTILAYER       // [toggle] extra cloud layer
 
 /* Aurora settings */
 #define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.05 // 0.0 static ~ 0.3 very fast
-#define NL_AURORA_SCALE 0.2   // 0.002 large ~ 0.4 tiny
-#define NL_AURORA_WIDTH 0.04    // 0.04 thin line ~ 0.4 thick lines
-#define NL_AURORA_COL1 vec3(0.41,0.01,0.85)
-#define NL_AURORA_COL2 vec3(0.08,0.56,0.96)
+#define NL_AURORA_SCALE 0.1  // 0.002 large ~ 0.4 tiny
+#define NL_AURORA_WIDTH 0.4    // 0.04 thin line ~ 0.4 thick lines
+#define NL_AURORA_COL1 vec3(0.01,0.08,0.66)
+#define NL_AURORA_COL2 vec3(0.22,0.01,0.66)
 
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
@@ -162,7 +162,7 @@
 #define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
 
 /* Sky reflection */
-//#define NL_GROUND_REFL 0.4       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky 
+//#define NL_GROUND_REFL 0.3       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky 
 #define NL_GROUND_RAIN_WETNESS 1.0 // 0.0 no wetness ~ 1.0 fully wet blocks when raining
 #define NL_GROUND_RAIN_PUDDLES 0.7 // 0.0 no puddles ~ 1.0 puddles
 //#define NL_GROUND_AURORA_REFL    // [toggle] aurora reflection on ground
@@ -182,39 +182,8 @@
   Subpack names and flags are inside `pack_config.toml`.
   Build tool will enable corresponding flags when compiling. 
 */
-#ifdef NO_WAVE_NO_FOG
-  #define NO_WAVE
-  #define NO_FOG
-#endif
 
-#ifdef NO_FOG
-  #undef NL_FOG
-#endif
-
-#ifdef NO_WAVE
-  #undef NL_PLANTS_WAVE
-  #undef NL_LANTERN_WAVE
-  #undef NL_UNDERWATER_WAVE
-  #undef NL_WATER_WAVE
-  #undef NL_RAIN_MIST_OPACITY
-#endif
-
-#ifdef CHUNK_ANIM
-  #define NL_CHUNK_LOAD_ANIM 100.0
-#endif
-
-#ifdef ROUNDED_CLOUDS
-  #undef NL_CLOUD_TYPE
-  #define NL_CLOUD_TYPE 2
-#endif
-
-#ifdef BOX_CLOUDS
-  #undef NL_CLOUD_TYPE
-  #define NL_CLOUD_TYPE 0
-  #undef NL_WATER_CLOUD_REFLECTION
-#endif
-
-#ifdef DOUBLE_BOX_CLOUDS_AND_CHUNK_ANIM
+#ifdef HIGH_BOX_CLOUDS
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #define NL_CHUNK_LOAD_ANIM 100.0
@@ -222,14 +191,14 @@
   #undef NL_WATER_CLOUD_REFLECTION
 #endif
 
-#ifdef DOUBLE_ROUNDED_CLOUDS_AND_CHUNK_ANIM
+#ifdef HIGH_ROUNDED_CLOUDS
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 2
   #define NL_CHUNK_LOAD_ANIM 100.0
   #define NL_CLOUD2_MULTILAYER
 #endif
 
-#ifdef UNOBTRUSIVE
+#ifdef LOWEST
   #undef NL_UNDERWATER_WAVE
   #undef NL_UNDERWATER_STREAKS
   #undef NL_FOG
@@ -241,16 +210,17 @@
   #undef NL_WATER_CLOUD_REFLECTION
   #undef NL_WATER_REFL_MASK
   #undef NL_CLOUD_TYPE
-  #define NL_CLOUD_TYPE 2
+  #undef NL_AURORA
+  #define NL_CLOUD_TYPE 1
 #endif
 
-#ifdef ROUNDED_CLOUDS_NO_PLANT_WAVES
+#ifdef MEDIUM_ROUNDED_CLOUDS
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 2
   #undef NL_PLANTS_WAVE
 #endif
 
-#ifdef BOX_CLOUDS_NO_PLANT_WAVES
+#ifdef MEDIUM_BOX_CLOUDS
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #undef NL_PLANTS_WAVE

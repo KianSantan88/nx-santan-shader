@@ -1,5 +1,5 @@
 name = "Newb Santan"
-version = [0, 16, 25]
+version = [0, 16, 2]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "43218de0-5cec-4aa0-8f41-3ca858f90154" # Use https://www.uuidgenerator.net/version4
+uuid = "d0e4e5b3-c6c2-47c1-a20a-0b9ce6bcc6e9" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 
@@ -33,82 +33,53 @@ credits = '''
 define = "EXPERIMENTAL"
 materials = ["RenderChunk"]
 description = '''
+§5 Experimental
 Things that arent in other subpacks you will find here
 '''
 
 [[subpack]]
-define = "BOX_CLOUDS_NO_PLANT_WAVES"
+define = "MEDIUM_BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
+§eMedium (box clouds)
 Box Clouds and no folliage waves
 '''
 
 [[subpack]]
-define = "ROUNDED_CLOUDS_NO_PLANT_WAVES"
+define = "MEDIUM_ROUNDED_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
+§eMedium (rounded clouds)
 Rounded Clouds and no folliage waves
 '''
 
 [[subpack]]
-define = "UNOBTRUSIVE"
+define = "LOWEST"
 materials = ["RenderChunk"]
 description = '''
-Unobtrusive (more things removed than no wave and fog)
+§a Lowest
+Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks.
 '''
 
 [[subpack]]
-define = "DOUBLE_ROUNDED_CLOUDS_AND_CHUNK_ANIM"
+define = "HIGH_ROUNDED_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
+§4High (rounded clouds)
 Multilayer Rounded Clouds and Chunk Anim!!1! §4(also laggey)
 '''
 
 [[subpack]]
-define = "DOUBLE_BOX_CLOUDS_AND_CHUNK_ANIM"
+define = "HIGH_BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
+§4High (box clouds)
 Multilayer Box Clouds and Chunk Anim! §4(laggey)
-'''
-
-[[subpack]]
-define = "BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-Box Clouds
-'''
-
-[[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
-description = '''
-Chunk loading animation
-'''
-
-[[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog and wave effects
-'''
-
-[[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog effect
-'''
-
-[[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
-description = '''
-No wave effects
 '''
 
 [[subpack]]
 define = "DEFAULT"
 materials = []
 description = '''
-Default
+§aDefault
 '''
