@@ -1,5 +1,5 @@
 name = "Newb Santan"
-version = [0, 16, 2]
+version = [0, 16, 3]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "d0e4e5b3-c6c2-47c1-a20a-0b9ce6bcc6e9" # Use https://www.uuidgenerator.net/version4
+uuid = "0a5a513d-5dbf-4059-9fd1-7e56a70d02f2" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 
@@ -38,6 +38,22 @@ Things that arent in other subpacks you will find here
 '''
 
 [[subpack]]
+define = "HIGH_ROUNDED_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
+description = '''
+§4High (rounded clouds)
+Multilayer Rounded Clouds and Chunk Anim!!1! §4(also laggey)
+'''
+
+[[subpack]]
+define = "HIGH_BOX_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
+description = '''
+§4High (box clouds)
+Multilayer Box Clouds, chunk anim, 
+'''
+
+[[subpack]]
 define = "MEDIUM_BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
@@ -59,22 +75,6 @@ materials = ["RenderChunk"]
 description = '''
 §a Lowest
 Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks.
-'''
-
-[[subpack]]
-define = "HIGH_ROUNDED_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-§4High (rounded clouds)
-Multilayer Rounded Clouds and Chunk Anim!!1! §4(also laggey)
-'''
-
-[[subpack]]
-define = "HIGH_BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-§4High (box clouds)
-Multilayer Box Clouds and Chunk Anim! §4(laggey)
 '''
 
 [[subpack]]
