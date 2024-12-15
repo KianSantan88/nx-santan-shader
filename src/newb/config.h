@@ -96,11 +96,11 @@
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
 
 /* Water */
-#define NL_WATER_TRANSPARENCY 0.4 // 0.0 transparent ~ 1.0 normal
+#define NL_WATER_TRANSPARENCY 0.9 // 0.0 transparent ~ 1.0 normal
 #define NL_WATER_BUMP 0.06        // 0.001 plain ~ 0.2 bumpy water
-#define NL_WATER_TEX_OPACITY 0.0  // 0.0 plain water ~ 1.0 vanilla water texture
+#define NL_WATER_WAVE_SPEED  0.8  // 0.2 calm ~ 2.0 turbulent
+#define NL_WATER_TEX_OPACITY 0.3  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
-#define NL_WATER_FOG_FADE         // [toggle] fog fade for water
 #define NL_WATER_CLOUD_REFLECTION // [toggle] simple clouds/aurora reflection
 #define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
 #define NL_WATER_TINT vec3(0.1,0.6,0.4)
