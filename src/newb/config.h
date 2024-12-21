@@ -134,13 +134,13 @@
 #define NL_CLOUD2_STEPS 5                  // 3 low quality ~ 16 high quality
 #define NL_CLOUD2_SCALE vec2(0.033, 0.033) // 0.003 large ~ 0.3 tiny
 #define NL_CLOUD2_SHAPE 0.5                // 0.0 round ~ 1.0 box
-#define NL_CLOUD2_DENSITY 85.0             // 1.0 blurry ~ 100.0 sharp
+#define NL_CLOUD2_DENSITY 25.0             // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_VELOCITY 0.8             // 0.0 static ~ 4.0 very fast
 //#define NL_CLOUD2_LAYER2                        // [toggle] extra cloud layer
-#define NL_CLOUD2_LAYER2_OFFSET 138.0             // 30.0 near ~ 300.0 very high
-#define NL_CLOUD2_LAYER2_THICKNESS 3.0            // 0.5 slim ~ 5.0 fat
-#define NL_CLOUD2_LAYER2_RAIN_THICKNESS 3.3       // 0.5 slim ~ 5.0 fat
-#define NL_CLOUD2_LAYER2_STEPS 6                  // 3 low quality ~ 16 high quality
+#define NL_CLOUD2_LAYER2_OFFSET 143.0             // 30.0 near ~ 300.0 very high
+#define NL_CLOUD2_LAYER2_THICKNESS 2.5            // 0.5 slim ~ 5.0 fat
+#define NL_CLOUD2_LAYER2_RAIN_THICKNESS 3.0       // 0.5 slim ~ 5.0 fat
+#define NL_CLOUD2_LAYER2_STEPS 3                  // 3 low quality ~ 16 high quality
 #define NL_CLOUD2_LAYER2_SCALE vec2(0.03, 0.03)   // 0.003 large ~ 0.3 tiny
 #define NL_CLOUD2_LAYER2_SHAPE 0.5                // 0.0 round ~ 1.0 box
 #define NL_CLOUD2_LAYER2_DENSITY 85.0             // 1.0 blurry ~ 100.0 sharp
@@ -156,8 +156,8 @@
 
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
-#define NL_SHOOTING_STAR_PERIOD 8.0 // 0.4 fast ~ 12.0 slow (12 secs)
-#define NL_SHOOTING_STAR_DELAY 42.0 // 0.0 no delay ~ 100.0 long time (100 secs)
+#define NL_SHOOTING_STAR_PERIOD 6.0 // 0.4 fast ~ 12.0 slow (12 secs)
+#define NL_SHOOTING_STAR_DELAY 64.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Chunk loading slide in animation */
 //#define NL_CHUNK_LOAD_ANIM 100.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
