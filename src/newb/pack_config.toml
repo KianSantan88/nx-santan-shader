@@ -1,5 +1,5 @@
 name = "Newb Santan Revitalized"
-version = [0, 00, 1]
+version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ https://discord.com/channels/844591537430069279/1301209950340518011
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "9fe9a616-a4cd-4dcc-ace5-e0e119b77379" # Use https://www.uuidgenerator.net/version4
+uuid = "2814ec5e-9c0d-406d-a162-01b333018de3" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 
