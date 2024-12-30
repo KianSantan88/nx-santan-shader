@@ -10,7 +10,6 @@ description = '''
 authors = ["devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
 uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
-materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
 copyright = '''
@@ -25,7 +24,7 @@ Contact (Discord Server): https://discord.gg/newb-community-844591537430069279
 credits = '''
 '''
 
-# subpacks are arranged in left to right order
+# subpacks are arranged in left to right order (top to bottom here)
 # right-most subpack is enabled by default
 
 [[subpack]]
@@ -72,7 +71,7 @@ No wave effects
 
 [[subpack]]
 define = "DEFAULT"
-materials = []
+materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 description = '''
 Default
 '''
