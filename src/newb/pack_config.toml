@@ -1,15 +1,15 @@
-name = "Newb X Legacy"
-version = [0, 15, 0]
+name = "Newb Santan"
+version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
-§7- An enchanced vanilla shader for Minecraft!
+§7- §7A §aNewb §7edit that focuses on §6scenic §bcolors §7and eye comfort!
 %v
 §3https://devendrn.github.io/newb-shader/
 ''' # %w = patch warning, %v = version
-authors = ["devendrn"]
+authors = ["raden1", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
+uuid = "1bd33579-3584-4aba-8eda-887396e1bdf6" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -29,45 +29,51 @@ credits = '''
 # right-most subpack is enabled by default
 
 [[subpack]]
-define = "ROUNDED_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Rounded Clouds
-'''
-
-[[subpack]]
-define = "BOX_CLOUDS"
+define = "EXPERIMENTAL"
 materials = ["Clouds", "RenderChunk"]
 description = '''
-Box Clouds
+§5 Experimental
+Things that arent in other subpacks you will find here
 '''
 
 [[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
+define = "HIGH_ROUNDED_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
 description = '''
-Chunk loading animation
+§4High (rounded clouds)
+Multilayer 16 steps Rounded Clouds, Folliage waves and Chunk Anim
 '''
 
 [[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
+define = "HIGH_BOX_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
 description = '''
-No fog and wave effects
+§4High (box clouds)
+Multilayer Box Clouds, Chunk Anim, Folliage waves 
 '''
 
 [[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
+define = "MEDIUM_BOX_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
 description = '''
-No fog effect
+§eMedium (box clouds)
+Box Clouds and no folliage waves
 '''
 
 [[subpack]]
-define = "NO_WAVE"
+define = "MEDIUM_ROUNDED_CLOUDS"
+materials = ["Clouds", "RenderChunk]
+description = '''
+§eMedium (rounded clouds)
+Rounded Clouds and no folliage waves
+'''
+
+[[subpack]]
+define = "LOWEST"
 materials = ["RenderChunk"]
 description = '''
-No wave effects
+§a Lowest
+Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks.
 '''
 
 [[subpack]]
