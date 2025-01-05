@@ -72,6 +72,7 @@ vec3 getHorizonEdgeCol(vec3 horizonCol, float rainFactor, vec3 FOG_COLOR) {
 vec3 renderOverworldSky(nl_skycolor skycol, vec3 viewDir) {
   float h = 1.0-viewDir.y*viewDir.y;
   float hsq = h*h;
+  hsq *= pow(hsq, 8.0);
   if (viewDir.y < 0.0) {
     hsq = 0.4 + 0.6*hsq*hsq;
   }
@@ -97,7 +98,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
 
   float spread = smoothstep(0.0, 1.0, abs(viewDirX));
   float sunBloom = spread*spread;
-  sunBloom = 0.5*spread + sunBloom*sunBloom*sunBloom*1.5;
+  sunBloom = 0.6*spread + sunBloom*sunBloom*sunBloom*1.6;
 
   return NL_MORNING_SUN_COL*horizonEdgeCol*(sunBloom*factor*factor);
 }
@@ -122,7 +123,7 @@ vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
   g *= g;
 
   vec3 sky = mix(zenithCol, horizonCol, f*f);
-  sky += (0.1*streaks + 2.0*g*g*g + h*h*h)*vec3(2.0,0.5,0.0);
+  sky += (0.1*streaks + 2.0*g*g*g + h*h*h)*vec3(0.23,0.01,0.38);
   sky += 0.25*streaks*spectrum(sin(2.0*viewDir.x*viewDir.y+t));
 
   return sky;

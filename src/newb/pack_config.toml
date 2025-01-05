@@ -62,7 +62,7 @@ Box Clouds and no folliage waves
 
 [[subpack]]
 define = "MEDIUM_ROUNDED_CLOUDS"
-materials = ["Clouds", "RenderChunk]
+materials = ["Clouds", "RenderChunk"]
 description = '''
 §eMedium (rounded clouds)
 Rounded Clouds and no folliage waves
