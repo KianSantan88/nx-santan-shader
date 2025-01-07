@@ -47,7 +47,7 @@
 
 /* Sun/moon light color on terrain */
 #define NL_MORNING_SUN_COL vec3(0.96,0.46,0.14)
-#define NL_NOON_SUN_COL    vec3(1.0,0.79,0.57)
+#define NL_NOON_SUN_COL    vec3(1.3,0.86,0.52)
 #define NL_NIGHT_SUN_COL   vec3(0.5,0.69,1.05)
 
 /* Ambient light on terrain (light that is added everywhere) */
@@ -55,29 +55,29 @@
 #define NL_END_AMBIENT    vec3(1.98,1.25,2.3)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(0.62,0.36,0.20)
+#define NL_OVERWORLD_TORCH_COL  vec3(0.68,0.36,0.10)
 #define NL_UNDERWATER_TORCH_COL vec3(0.7,0.7,0.7)
 #define NL_NETHER_TORCH_COL     vec3(1.5,0.60,0.20)
 #define NL_END_TORCH_COL        vec3(0.2,0.5,1.3)
 
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
-#define NL_MIST_DENSITY 0.80      // 0.0 no mist ~ 1.0 misty
+#define NL_MIST_DENSITY 0.65      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 //#define NL_CLOUDY_FOG 0.1         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky colors - zenith=top, horizon=bottom */
 #define NL_DAY_ZENITH_COL    vec3(0.22,0.55,0.89)
 #define NL_DAY_HORIZON_COL   vec3(0.93,0.97,0.99)
-#define NL_NIGHT_ZENITH_COL  vec3(0.0,0.00,0.36)
-#define NL_NIGHT_HORIZON_COL vec3(0.0,0.00,0.37)
+#define NL_NIGHT_ZENITH_COL  vec3(0.001,0.001,0.10)
+#define NL_NIGHT_HORIZON_COL vec3(0.001,0.001,0.10)
 #define NL_RAIN_ZENITH_COL   vec3(0.9,0.9,1.0)
 #define NL_RAIN_HORIZON_COL  vec3(0.7,0.7,0.8)
 #define NL_END_ZENITH_COL    vec3(0.05,0.00,0.09)
 #define NL_END_HORIZON_COL   vec3(0.04,0.00,0.07)
-#define NL_DAWN_ZENITH_COL   vec3(1.6, 0.8, 0.3)
-#define NL_DAWN_HORIZON_COL  vec3(3.0, 1.8, 1.0)
-#define NL_DAWN_EDGE_COL     vec3(4.0, 2.5, 1.5)
+#define NL_DAWN_ZENITH_COL   vec3(0.42,0.39,0.29)
+#define NL_DAWN_HORIZON_COL  vec3(2.0,0.6,0.00)
+#define NL_DAWN_EDGE_COL     vec3(0.7,0.7,0.7)
 
 /* Rainbow */
 //#define NL_RAINBOW         // [toggle] enable rainbow in sky
@@ -160,7 +160,7 @@
 #define NL_SHOOTING_STAR_DELAY 60.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-#define NL_GALAXY_STARS 1.0           // [toggle] 0.1 dim - 4.0 bright
+#define NL_GALAXY_STARS 1.8           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 1.0          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.06            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.0    // 0.0 invisible - 1.0 visible
@@ -170,7 +170,7 @@
 
 /* Sun/Moon */
 #define NL_SUNMOON_ANGLE 18.5 // [toggle] 0.0 no tilt ~ 90.0 tilt of 90 degrees
-#define NL_SUNMOON_SIZE 1.0     // 0.3 tiny ~ 4.0 massive
+#define NL_SUNMOON_SIZE 1.10     // 0.3 tiny ~ 4.0 massive
 
 /* Fake godrays during sunrise/sunset */
 #define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
@@ -252,6 +252,8 @@
   #define NL_GROUND_REFL 0.4
   #define NL_RAINBOW
   #define NL_WATER_CLOUD_REFLECTION
+  #define NL_WATER_REFL_MASK
+  #define NL_CLOUD_SHADOW 
 #endif
 
 #endif

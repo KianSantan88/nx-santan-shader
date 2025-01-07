@@ -1,14 +1,14 @@
-name = "Newb Santan"
+name = "Newb Santan Revitalized"
 version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
-§7- §7A §aNewb §7edit that focuses on §6scenic §bcolors §7and eye comfort!
+§7- §6Adding some clarity to MCBE graphics. §7|| §aA Newb variant focused on vivid colors and eye comfort
 %v
 §3https://devendrn.github.io/newb-shader/
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
-url = "https://devendrn.github.io/newb-shader/"
+url = "https://github.com/KianSantan88/nx-santan-shader"
 uuid = "1bd33579-3584-4aba-8eda-887396e1bdf6" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
