@@ -58,7 +58,7 @@
 #define NL_OVERWORLD_TORCH_COL  vec3(0.68,0.36,0.10)
 #define NL_UNDERWATER_TORCH_COL vec3(0.7,0.7,0.7)
 #define NL_NETHER_TORCH_COL     vec3(1.5,0.60,0.20)
-#define NL_END_TORCH_COL        vec3(0.2,0.5,1.3)
+#define NL_END_TORCH_COL        vec3(0.2,0.3,1.6)
 
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
