@@ -56,7 +56,7 @@
 
 /* Torch colors */
 #define NL_OVERWORLD_TORCH_COL  vec3(0.68,0.36,0.10)
-#define NL_UNDERWATER_TORCH_COL vec3(0.7,0.7,0.7)
+#define NL_UNDERWATER_TORCH_COL vec3(0.8,0.8,0.8)
 #define NL_NETHER_TORCH_COL     vec3(1.5,0.60,0.20)
 #define NL_END_TORCH_COL        vec3(0.2,0.3,1.6)
 
@@ -69,15 +69,15 @@
 /* Sky colors - zenith=top, horizon=bottom */
 #define NL_DAY_ZENITH_COL    vec3(0.22,0.55,0.89)
 #define NL_DAY_HORIZON_COL   vec3(0.93,0.97,0.99)
-#define NL_NIGHT_ZENITH_COL  vec3(0.001,0.001,0.10)
-#define NL_NIGHT_HORIZON_COL vec3(0.001,0.001,0.10)
+#define NL_NIGHT_ZENITH_COL  vec3(0.0,0.0,0.5)
+#define NL_NIGHT_HORIZON_COL vec3(0.1,0.1,0.4)
 #define NL_RAIN_ZENITH_COL   vec3(0.9,0.9,1.0)
 #define NL_RAIN_HORIZON_COL  vec3(0.7,0.7,0.8)
-#define NL_END_ZENITH_COL    vec3(0.05,0.00,0.09)
-#define NL_END_HORIZON_COL   vec3(0.04,0.00,0.07)
-#define NL_DAWN_ZENITH_COL   vec3(0.42,0.39,0.29)
-#define NL_DAWN_HORIZON_COL  vec3(2.0,0.6,0.00)
-#define NL_DAWN_EDGE_COL     vec3(0.7,0.7,0.7)
+#define NL_END_ZENITH_COL    vec3(0.0,0.0,0.0)
+#define NL_END_HORIZON_COL   vec3(0.0,0.0,0.0)
+#define NL_DAWN_ZENITH_COL   vec3(0.41,0.39,0.20)
+#define NL_DAWN_HORIZON_COL  vec3(2.0,0.7,0.00)
+#define NL_DAWN_EDGE_COL     vec3(1.0,1.0,1.0)
 
 /* Rainbow */
 //#define NL_RAINBOW         // [toggle] enable rainbow in sky
@@ -93,17 +93,17 @@
 /* Waving */
 #define NL_PLANTS_WAVE 0.02    // [toggle] 0.02 gentle ~ 0.4 violent
 #define NL_LANTERN_WAVE 0.05   // [toggle] 0.05 subtle ~ 0.4 large swing
-#define NL_WAVE_SPEED 2.2      // 0.5 slow wave ~ 5.0 very fast wave
+#define NL_WAVE_SPEED 2.0      // 0.5 slow wave ~ 5.0 very fast wave
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
 
 /* Water */
-#define NL_WATER_TRANSPARENCY 0.8 // 0.0 transparent ~ 1.0 normal
-#define NL_WATER_BUMP 0.010        // 0.001 plain ~ 0.2 bumpy water
+#define NL_WATER_TRANSPARENCY 0.5 // 0.0 transparent ~ 1.0 normal
+#define NL_WATER_BUMP 0.024        // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_WAVE_SPEED  0.5  // 0.2 calm ~ 2.0 turbulent
-#define NL_WATER_TEX_OPACITY 0.2  // 0.0 plain water ~ 1.0 vanilla water texture
+#define NL_WATER_TEX_OPACITY 0.4  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
 //#define NL_WATER_CLOUD_REFLECTION // [toggle] simple clouds/aurora reflection
-//#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
+#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
 #define NL_WATER_TINT vec3(0.1,0.6,0.4)
 
 /* Underwater */
@@ -127,7 +127,7 @@
 #define NL_CLOUD1_DEPTH 1.3                // 0.0 no bump ~ 10.0 large bumps
 #define NL_CLOUD1_SPEED 0.04               // 0.0 static ~ 0.4 fast moving
 #define NL_CLOUD1_DENSITY 0.54             // 0.1 less clouds ~ 0.8 more clouds
-#define NL_CLOUD1_OPACITY 0.9              // 0.0 invisible ~ 1.0 opaque
+#define NL_CLOUD1_OPACITY 0.7              // 0.0 invisible ~ 1.0 opaque
 
 /* Rounded cloud Settings */
 #define NL_CLOUD2_THICKNESS 2.8            // 0.5 slim ~ 5.0 fat
@@ -161,7 +161,7 @@
 #define NL_SHOOTING_STAR_DELAY 60.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-#define NL_GALAXY_STARS 1.8           // [toggle] 0.1 dim - 4.0 bright
+#define NL_GALAXY_STARS 2.0           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 1.0          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.06            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.0    // 0.0 invisible - 1.0 visible
@@ -187,7 +187,7 @@
 #define NL_ENTITY_EDGE_HIGHLIGHT 0.44 // 0.0 no highlight ~ 1.6 bright highlight
 
 /* Weather particles */
-#define NL_WEATHER_SPECK 0.6         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
+#define NL_WEATHER_SPECK 0.5         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
 #define NL_WEATHER_RAIN_SLANT 4.2    // 1.0 minimal ~ 8.0 violent
 #define NL_WEATHER_PARTICLE_SIZE 0.8 // 0.5 tiny ~ 4.0 large
 
@@ -215,20 +215,29 @@
   #undef NL_WATER_FOG_FADE
   #undef NL_WATER_CLOUD_REFLECTION
   #undef NL_WATER_REFL_MASK
-  #undef NL_CLOUD_TYPE
   #undef NL_AURORA
+  #undef NL_GALAXY_STARS
+  #undef NL_SHOOTING_STAR
+  #undef NL_GLOW_LEAK
+  #undef NL_GLOW_SHIMMER
 #endif
 
 #ifdef MEDIUM_ROUNDED_CLOUDS
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 2
   #undef NL_PLANTS_WAVE
+  #undef NL_GALAXY_STARS
+  #undef NL_GLOW_LEAK
+  #undef NL_GLOW_SHIMMER
 #endif
 
 #ifdef MEDIUM_BOX_CLOUDS
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #undef NL_PLANTS_WAVE
+  #undef NL_GALAXY_STARS
+  #undef NL_GLOW_LEAK
+  #undef NL_GLOW_SHIMMER
 #endif
 
 #ifdef HIGH_BOX_CLOUDS

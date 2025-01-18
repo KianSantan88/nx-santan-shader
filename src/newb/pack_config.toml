@@ -1,5 +1,5 @@
 name = "Newb Santan Revitalized"
-version = [0, 1, 0]
+version = [0, 1, 1]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://github.com/KianSantan88/nx-santan-shader"
-uuid = "1bd33579-3584-4aba-8eda-887396e1bdf6" # Use https://www.uuidgenerator.net/version4
+uuid = "2394270a-3eb8-45df-91db-472dc04904ce" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -70,10 +70,10 @@ Rounded Clouds and no folliage waves
 
 [[subpack]]
 define = "LOWEST"
-materials = ["RenderChunk"]
+materials = ["Clouds", "RenderChunk"]
 description = '''
 §a Lowest
-Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks.
+Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks, shimmer, leaks, galaxy, shooting stars.
 '''
 
 [[subpack]]
