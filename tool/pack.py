@@ -175,6 +175,8 @@ def run(args):
         _name = pack_name + " v" + pack_version
         lp.Material.write = mwrite
 
+    _build(status, args.p, "default", pack_config['materials'], mats_dir)
+
     for subpack in pack_config['subpack']:
         subpack_name: str = subpack['define'].lower()
         subpack_path = os.path.join(pack_dir, 'subpacks', subpack_name)
