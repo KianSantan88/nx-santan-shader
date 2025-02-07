@@ -1,5 +1,5 @@
-name = "Newb Santan Revitalized"
-version = [0, 1, 1]
+name = "Newb Santan Revitalized TEST"
+version = [0, 1, 15]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://github.com/KianSantan88/nx-santan-shader"
-uuid = "2394270a-3eb8-45df-91db-472dc04904ce" # Use https://www.uuidgenerator.net/version4
+uuid = "bdcc4139-740d-491e-943b-f93cad3d3e53" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 

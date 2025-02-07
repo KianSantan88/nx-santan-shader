@@ -32,8 +32,8 @@ vec3 getEndHorizonCol() {
 // values used for getting sky colors
 vec3 getSkyFactors(vec3 FOG_COLOR) {
   vec3 factors = vec3(
-    max(FOG_COLOR.r*0.6, max(FOG_COLOR.g, FOG_COLOR.b)), // intensity val
-    1.5*max(FOG_COLOR.r-FOG_COLOR.b, 0.0), // viewing sun
+    max(FOG_COLOR.r*0.7, max(FOG_COLOR.g, FOG_COLOR.b)), // intensity val
+    1.2*max(FOG_COLOR.r-FOG_COLOR.b, 0.0), // viewing sun
     min(FOG_COLOR.g, 0.26) // rain brightness
   );
 
@@ -98,33 +98,29 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
 
   float spread = smoothstep(0.0, 1.0, abs(viewDirX));
   float sunBloom = spread*spread;
-  sunBloom = 0.6*spread + sunBloom*sunBloom*sunBloom*1.6;
+  sunBloom = 0.7*spread + sunBloom*sunBloom*sunBloom*1.7;
 
   return NL_MORNING_SUN_COL*horizonEdgeCol*(sunBloom*factor*factor);
 }
 
 
-vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
-  t *= 0.1;
-  float a = atan2(viewDir.x, viewDir.z);
+vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 v, float t){
+  vec3 sky = vec3(0.0, 0.0, 0.0);
+  v.y = smoothstep(-1.2,1.5,abs(v.y)); // sky 2
+  v.x += 0.0*sin(10.0*v.y - t + v.z);
 
-  float n1 = 0.5 + 0.5*sin(3.0*a + t + 10.0*viewDir.x*viewDir.y);
-  float n2 = 0.5 + 0.5*sin(5.0*a + 0.5*t + 5.0*n1 + 0.1*sin(40.0*a -4.0*t));
+  float a = atan2(v.x, v.z);
 
-  float waves = 0.7*n2*n1 + 0.3*n1;
+  float s = sin(a*7.0 + 0.5*t);
+  s = s*s;
+  s *= 0.1 + 0.4*sin(a*11.0 - 0.22*t);
+  float g = smoothstep(1.2-s, -1.7, v.y);
 
-  float grad = 0.5 + 0.5*viewDir.y;
-  float streaks = waves*(1.0 - grad*grad*grad);
-  streaks += (1.0-streaks)*smoothstep(1.0-waves, -1.0, viewDir.y);
-
-  float f = 0.3*streaks + 0.7*smoothstep(1.0, -0.5, viewDir.y);
-  float h = streaks*streaks;
-  float g = h*h;
-  g *= g;
-
-  vec3 sky = mix(zenithCol, horizonCol, f*f);
-  sky += (0.1*streaks + 2.0*g*g*g + h*h*h)*vec3(0.67,0.00,0.04);
-  sky += 0.25*streaks*spectrum(sin(2.0*viewDir.x*viewDir.y+t));
+  float f = (1.0*g + 0.8*smoothstep(1.0,-0.1,v.y));
+  float h = (1.0*g + 1.2*smoothstep(0.9,-0.2,v.y));
+  vec3 mixHorizon = mix(horizonCol, vec3(0.4, 0.2, 0.8), 1.0);
+  sky += mix(zenithCol, mixHorizon, f*f);
+  sky += (g*g*g*g*0.8 + 0.6*h*h*h*h);
 
   return sky;
 }
