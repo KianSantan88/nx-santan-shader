@@ -161,7 +161,7 @@
 #define NL_SHOOTING_STAR_DELAY 60.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-//define NL_GALAXY_STARS 1.8           // [toggle] 0.1 dim - 4.0 bright
+#define NL_GALAXY_STARS 1.8           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 2.0          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.06            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.0    // 0.0 invisible - 1.0 visible
@@ -228,6 +228,7 @@
   #undef NL_PLANTS_WAVE
   #undef NL_GLOW_LEAK
   #undef NL_GLOW_SHIMMER
+  #undef NL_GALAXY_STARS
 #endif
 
 #ifdef MEDIUM_BOX_CLOUDS
@@ -236,6 +237,7 @@
   #undef NL_PLANTS_WAVE
   #undef NL_GLOW_LEAK
   #undef NL_GLOW_SHIMMER
+  #undef NL_GALAXY_STARS
 #endif
 
 #ifdef HIGH_BOX_CLOUDS
@@ -244,7 +246,6 @@
   #define NL_CHUNK_LOAD_ANIM 100.0
   #define NL_CLOUD0_MULTILAYER
   #define NL_BLINKING_TORCH
-  #define NL_GALAXY_STARS 1.8
 #endif
 
 #ifdef HIGH_ROUNDED_CLOUDS
@@ -255,7 +256,6 @@
   #define NL_CHUNK_LOAD_ANIM 100.0
   #define NL_CLOUD2_LAYER2
   #define NL_BLINKING_TORCH
-  #define NL_GALAXY_STARS 1.8
 #endif
 
 #ifdef EXPERIMENTAL
