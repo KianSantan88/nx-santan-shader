@@ -1,5 +1,5 @@
-name = "Newb Santan Revitalized TEST"
-version = [0, 1, 15]
+name = "Newb Santan Revitalized"
+version = [0, 2, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://github.com/KianSantan88/nx-santan-shader"
-uuid = "bdcc4139-740d-491e-943b-f93cad3d3e53" # Use https://www.uuidgenerator.net/version4
+uuid = "8504802b-defc-4cd5-b096-4469d57b6d45" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -30,7 +30,7 @@ credits = '''
 
 [[subpack]]
 define = "EXPERIMENTAL"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §5 Experimental
 Things that arent in other subpacks you will find here
@@ -38,23 +38,23 @@ Things that arent in other subpacks you will find here
 
 [[subpack]]
 define = "HIGH_ROUNDED_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §4High (rounded clouds)
-Multilayer 16 steps Rounded Clouds, Folliage waves and Chunk Anim
+Multilayer 16 steps Rounded Clouds, Folliage waves, Glow leaks
 '''
 
 [[subpack]]
 define = "HIGH_BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §4High (box clouds)
-Multilayer Box Clouds, Chunk Anim, Folliage waves 
+Multilayer Box Clouds, Folliage waves, Glow leaks 
 '''
 
 [[subpack]]
 define = "MEDIUM_BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §eMedium (box clouds)
 Box Clouds and no folliage waves
@@ -62,7 +62,7 @@ Box Clouds and no folliage waves
 
 [[subpack]]
 define = "MEDIUM_ROUNDED_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §eMedium (rounded clouds)
 Rounded Clouds and no folliage waves
@@ -70,7 +70,7 @@ Rounded Clouds and no folliage waves
 
 [[subpack]]
 define = "LOWEST"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §a Lowest
 Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks, shimmer, leaks, galaxy, shooting stars.
