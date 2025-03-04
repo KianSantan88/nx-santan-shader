@@ -37,6 +37,14 @@ Things that arent in other subpacks you will find here
 '''
 
 [[subpack]]
+define = "HIGH_REALISTIC_CLOUDS"
+materials = ["Clouds", "RenderChunk", "Sky"]
+description = '''
+§4High (realistic clouds)
+Realistic-ish clouds and the yk the usual.
+'''
+
+[[subpack]]
 define = "HIGH_ROUNDED_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
@@ -51,13 +59,20 @@ description = '''
 §4High (box clouds)
 Multilayer Box Clouds, Folliage waves, Glow leaks 
 '''
+[[subpack]]
+define = "MEDIUM_REALISTIC_CLOUDS"
+materials = ["Clouds", "RenderChunk", "Sky"]
+description = '''
+§eMedium (realistic clouds)
+Realistic-ish clouds, no folliage waves, no glow and shimmer
+'''
 
 [[subpack]]
 define = "MEDIUM_BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §eMedium (box clouds)
-Box Clouds and no folliage waves
+Box Clouds, no folliage waves, no glow and shimmer
 '''
 
 [[subpack]]
@@ -65,7 +80,7 @@ define = "MEDIUM_ROUNDED_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §eMedium (rounded clouds)
-Rounded Clouds and no folliage waves
+Rounded Clouds, no folliage waves, no glow and shimmer
 '''
 
 [[subpack]]

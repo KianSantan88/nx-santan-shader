@@ -91,7 +91,7 @@
 //#define NL_GLOW_LEAK 1.0        // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
 
 /* Waving */
-#define NL_PLANTS_WAVE 0.03    // [toggle] 0.02 gentle ~ 0.4 violent
+//#define NL_PLANTS_WAVE 0.03    // [toggle] 0.02 gentle ~ 0.4 violent
 #define NL_LANTERN_WAVE 0.07   // [toggle] 0.05 subtle ~ 0.4 large swing
 #define NL_WAVE_SPEED 2.0      // 0.5 slow wave ~ 5.0 very fast wave
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
@@ -114,7 +114,7 @@
 #define NL_UNDERWATER_TINT vec3(0.5,0.9,0.7) // fog tint color when underwater
 
 /* Cloud type */
-#define NL_CLOUD_TYPE 1 // 0:vanilla, 1:soft, 2:rounded
+#define NL_CLOUD_TYPE 1 // 0:vanilla, 1:soft, 2:rounded, 3:realistic
 
 /* Vanilla cloud settings - make sure to remove clouds.png when using this */
 #define NL_CLOUD0_THICKNESS 6.0      // 0.5 slim ~ 8.0 fat
@@ -128,7 +128,6 @@
 #define NL_CLOUD1_SPEED 0.04               // 0.0 static ~ 0.4 fast moving
 #define NL_CLOUD1_DENSITY 0.8             // 0.1 less clouds ~ 0.8 more clouds
 #define NL_CLOUD1_OPACITY 0.2              // 0.0 invisible ~ 1.0 opaque
-
 
 /* Rounded cloud Settings */
 #define NL_CLOUD2_THICKNESS 3.8            // 0.5 slim ~ 5.0 fat
@@ -148,6 +147,12 @@
 #define NL_CLOUD2_LAYER2_DENSITY 100.0           // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_LAYER2_VELOCITY 0.8           // 0.0 static ~ 4.0 very fast
 
+/* Realistic cloud settings */
+#define NL_CLOUD3_SCALE vec2(0.04, 0.04) // 0.003 large ~ 1.0 tiny
+#define NL_CLOUD3_SPEED 0.005            // 0.0 static ~ 4.0 fast moving
+#define NL_CLOUD3_SHADOW 0.8             // 0.1 subtle ~ 1.0 dark
+#define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
+
 /* Aurora settings */
 #define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.06 // 0.0 static ~ 0.3 very fast
@@ -166,13 +171,18 @@
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
 #define NL_SHOOTING_STAR_PERIOD 6.0 // 0.4 fast ~ 12.0 slow (12 secs)
-#define NL_SHOOTING_STAR_DELAY 60.0 // 0.0 no delay ~ 100.0 long time (100 secs)
+#define NL_SHOOTING_STAR_DELAY 30.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
 //#define NL_GALAXY_STARS 2.0           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 2.0          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.03            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.0    // 0.0 invisible - 1.0 visible
+
+/* Lava effects */
+#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
+#define NL_LAVA_NOISE_BUMP 0.2 // [toggle] 0.1 subtle ~ 0.8 massive waves
+#define NL_LAVA_NOISE_SPEED 0.04 // 0.0 still ~ 0.1 fast
 
 /* Chunk loading slide in animation */
 //#define NL_CHUNK_LOAD_ANIM 100.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
@@ -182,7 +192,7 @@
 #define NL_SUNMOON_SIZE 1.2     // 0.3 tiny ~ 4.0 massive
 
 /* Fake godrays during sunrise/sunset */
-//#define NL_GODRAY 0.3 // [toggle] 0.1 subtle ~ 0.8 strong
+#define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
 
 /* Sky reflection */
 //#define NL_GROUND_REFL 0.4       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky 
@@ -227,39 +237,52 @@
   #undef NL_GALAXY_STARS
   #undef NL_SHOOTING_STAR
   #undef NL_BH
+  #undef NL_LAVA_NOISE
 #endif
 
 #ifdef MEDIUM_ROUNDED_CLOUDS
-  #undef NL_CLOUD_TYPE
+  #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 2
-  #undef NL_PLANTS_WAVE
 #endif
 
 #ifdef MEDIUM_BOX_CLOUDS
-  #undef NL_CLOUD_TYPE
+  #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
-  #undef NL_PLANTS_WAVE
-  #undef NL_GALAXY_STARS
+#endif
+
+#ifdef MEDIUM_REALISTIC_CLOUDS
+  #undef  NL_CLOUD_TYPE
+  #define NL_CLOUD_TYPE 3
 #endif
 
 #ifdef HIGH_BOX_CLOUDS
-  #undef NL_CLOUD_TYPE
+  #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #define NL_CLOUD0_MULTILAYER
   #define NL_GALAXY_STARS 2.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
+  #define NL_PLANTS_WAVE 0.03
 #endif
 
 #ifdef HIGH_ROUNDED_CLOUDS
-  #undef NL_CLOUD_TYPE
+  #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 2
-  #undef NL_CLOUD2_STEPS
+  #undef  NL_CLOUD2_STEPS
   #define NL_CLOUD2_STEPS 16
   #define NL_CLOUD2_LAYER2
   #define NL_GALAXY_STARS 2.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
+  #define NL_PLANTS_WAVE 0.03
+#endif
+
+#ifdef HIGH_REALISTIC_CLOUDS
+  #define NL_CLOUD_TYPE 3
+  #define NL_GALAXY_STARS 2.0
+  #define NL_GLOW_LEAK 1.0
+  #define NL_GLOW_SHIMMER 0.8
+  #define NL_PLANTS_WAVE 0.03
 #endif
 
 #ifdef EXPERIMENTAL
@@ -273,6 +296,7 @@
   #define NL_GALAXY_STARS 2.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
+  #define NL_PLANTS_WAVE 0.03
 #endif
 
 #endif
