@@ -174,15 +174,10 @@
 #define NL_SHOOTING_STAR_DELAY 30.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-//#define NL_GALAXY_STARS 3.4           // [toggle] 0.1 dim - 4.0 bright
+//#define NL_GALAXY_STARS 3.6           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 1.0          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.03            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.0    // 0.0 invisible - 1.0 visible
-
-/* Lava effects */
-#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
-#define NL_LAVA_NOISE_BUMP 0.5 // [toggle] 0.1 subtle ~ 0.8 massive waves
-#define NL_LAVA_NOISE_SPEED 0.05 // 0.0 still ~ 0.1 fast
 
 /* Chunk loading slide in animation */
 //#define NL_CHUNK_LOAD_ANIM 100.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
@@ -212,8 +207,8 @@
 
 /* Lava effects */
 #define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
-//#define NL_LAVA_NOISE_BUMP 0.2 // [toggle] 0.1 subtle ~ 0.8 massive waves
-#define NL_LAVA_NOISE_SPEED 0.02 // 0.0 still ~ 0.1 fast
+#define NL_LAVA_NOISE_BUMP 0.5 // [toggle] 0.1 subtle ~ 0.8 massive waves
+#define NL_LAVA_NOISE_SPEED 0.05 // 0.0 still ~ 0.1 fast
 
 /*
   NEWB SHADER SUBPACK CONFIG
@@ -264,7 +259,7 @@
   #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #define NL_CLOUD0_MULTILAYER
-  #define NL_GALAXY_STARS 3.4
+  #define NL_GALAXY_STARS 3.6
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
@@ -276,7 +271,7 @@
   #undef  NL_CLOUD2_STEPS
   #define NL_CLOUD2_STEPS 16
   #define NL_CLOUD2_LAYER2
-  #define NL_GALAXY_STARS 3.4
+  #define NL_GALAXY_STARS 3.6
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
@@ -285,7 +280,7 @@
 #ifdef HIGH_REALISTIC_CLOUDS
   #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 3
-  #define NL_GALAXY_STARS 3.4
+  #define NL_GALAXY_STARS 3.6
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
@@ -299,7 +294,7 @@
   #define NL_WATER_CLOUD_REFLECTION
   #define NL_WATER_REFL_MASK
   #define NL_CLOUD_SHADOW 
-  #define NL_GALAXY_STARS 2.0
+  #define NL_GALAXY_STARS 3.6
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03

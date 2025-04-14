@@ -270,7 +270,7 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   float gd = vdir.x + 0.1*vdir.y + 0.1*sin(10.0*vdir.z + 0.2*t);
   float st = n1*n2*n3*n3*(1.0+70.0*gd*gd);
   st = max(0.05, (1.0-st)/(1.0+400.0*st)); // Ensure stars don’t go black
-  vec3 stars = (vec3(0.3, 0.3, 1.0) + 0.2*sin(vec3(6.0,6.0,10.0)*(2.0*n1+0.8*n2) + vec3(0.0,0.4,0.86)))*st;
+  vec3 stars = (vec3(0.3, 0.3, 1.0) + 0.2*sin(vec3(6.0,6.0,14.0)*(2.0*n1+0.8*n2) + vec3(0.0,0.4,0.96)))*st;
 
   // glow
   float gfmask = abs(vdir.x)-0.15*n1+0.04*n2+0.25*n0;
