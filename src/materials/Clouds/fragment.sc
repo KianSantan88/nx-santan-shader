@@ -34,7 +34,7 @@ void main() {
     #else
       vDir.xz *= 0.3 + v_color0.w; // height parallax
 
-      vec2 p = vDir.xz/(0.015 + 0.035*abs(vDir.y));
+      vec2 p = 0.5*vDir.xz/(0.015 + 0.035*abs(vDir.y));
       vec4 clouds = renderClouds(p, v_color2.w, v_color1.w, v_color2.rgb, v_color1.rgb, NL_CLOUD3_SCALE, NL_CLOUD3_SPEED, NL_CLOUD3_SHADOW);
       color = clouds;
 

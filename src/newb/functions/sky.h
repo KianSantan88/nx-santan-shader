@@ -102,7 +102,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
   return NL_MORNING_SUN_COL*horizonEdgeCol*(sunBloom*factor*factor);
 }
 
-
+// custom end sky
 vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 v, float t){
   vec3 sky = vec3(0.0, 0.0, 0.0);
   v.y = smoothstep(-1.2,1.5,abs(v.y)); // sky 2
@@ -117,13 +117,14 @@ vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 v, float t){
 
   float f = (1.0*g + 0.8*smoothstep(1.0,-0.1,v.y));
   float h = (1.0*g + 1.2*smoothstep(0.9,-0.2,v.y));
-  vec3 mixHorizon = mix(horizonCol, vec3(0.4, 0.2, 0.8), 1.0);
+  vec3 mixHorizon = mix(horizonCol, vec3(1.36,1.02,1.92), 1.0);
   sky += mix(zenithCol, mixHorizon, f*f);
   sky += (g*g*g*g*0.6 + 0.4*h*h*h*h);
 
   return sky;
 }
 
+// black hole
 vec4 renderBlackhole(vec3 vdir, float t) {
   t *= NL_BH_SPEED;
 
@@ -268,22 +269,21 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   n3 = smoothstep(0.04,0.3,n3+0.02*n2);
   float gd = vdir.x + 0.1*vdir.y + 0.1*sin(10.0*vdir.z + 0.2*t);
   float st = n1*n2*n3*n3*(1.0+70.0*gd*gd);
-  st = (1.0-st)/(1.0+400.0*st);
-  vec3 stars = (0.8 + 0.2*sin(vec3(8.0,6.0,10.0)*(2.0*n1+0.8*n2) + vec3(0.0,0.4,0.82)))*st;
+  st = max(0.05, (1.0-st)/(1.0+400.0*st)); // Ensure stars don’t go black
+  vec3 stars = (vec3(0.3, 0.3, 1.0) + 0.2*sin(vec3(6.0,6.0,10.0)*(2.0*n1+0.8*n2) + vec3(0.0,0.4,0.86)))*st;
 
   // glow
   float gfmask = abs(vdir.x)-0.15*n1+0.04*n2+0.25*n0;
   float gf = 1.0 - (vdir.x*vdir.x + 0.03*n1 + 0.2*n0);
-  gf *= gf;
   gf *= gf*gf;
   gf *= 1.0-0.3*smoothstep(0.2, 0.3, gfmask);
   gf *= 1.0-0.2*smoothstep(0.3, 0.4, gfmask);
   gf *= 1.0-0.1*smoothstep(0.2, 0.1, gfmask);
-  vec3 gfcol = normalize(vec3(n0, cos(2.0*vdir.y), sin(vdir.x+n0)));
-  stars += (0.4*gf + 0.012)*mix(vec3(0.5, 0.5, 0.5), gfcol*gfcol, NL_GALAXY_VIBRANCE);
+  vec3 gfcol = vec3(0.2, 0.2, 1.0); // Soft blue, no normalize
+  stars += (0.4*gf + 0.05)*mix(vec3(0.5, 0.5, 0.5), gfcol, 0.3);
 
   stars *= mix(1.0, NL_GALAXY_DAY_VISIBILITY, min(dot(fogColor, vec3(0.5,0.7,0.5)), 1.0)); // maybe add day factor to env for global use?
-
+  stars *= vec3(0.2, 0.0, 1.4);
   return stars*(1.0-env.rainFactor);
 }
 

@@ -92,6 +92,7 @@ void main() {
         color.rgb = colorCorrection(color.rgb);
       #else // NL_CLOUD_TYPE 2
         v_fogColor = FogColor.rgb;
+        worldPos.xz *= 2.0;
         v_color1 = vec4(skycol.zenith, rain);
         v_color2 = vec4(skycol.horizonEdge, ViewPositionAndTime.w);
         color = vec4(worldPos, fade);

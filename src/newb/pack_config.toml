@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["raden1", "devendrn"]
 url = "https://github.com/KianSantan88/nx-santan-shader"
-uuid = "8504802b-defc-4cd5-b096-4469d57b6d45" # Use https://www.uuidgenerator.net/version4
+uuid = "9f4a9508-3e8a-472a-900b-b7bc4e268731" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -23,6 +23,10 @@ You can compile the shader from source and distribute the result under your own 
 Contact (Discord Server): https://discord.gg/newb-community-844591537430069279
 ''' # %a = authors
 credits = '''
+dawn color: it'smehazel
+better realistic clouds code: amg
+new end-sky: firmw4 / shou
+fake bloom through textures: Ale or rexytmc
 '''
 
 # subpacks are arranged in left to right order

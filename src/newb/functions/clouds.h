@@ -103,11 +103,10 @@ float cloudsNoiseVr(vec2 p, float t) {
   float n = fastVoronoi2(p + t, 1.8);
   n *= fastVoronoi2(3.0*p + t, 1.5);
   n *= fastVoronoi2(9.0*p + t, 0.4);
-  n *= fastVoronoi2(32.0*p + t, 0.1);
-  n *= fastVoronoi2(128.0*p + t, 0.02); // more quality
+  n *= fastVoronoi2(27.0*p + t, 0.1);
+  n *= fastVoronoi2(82.0*p + t, 0.02); // more quality
   return n*n;
 }
-
 vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, const vec2 scale, const float velocity, const float shadow) {
   p *= scale;
   t *= velocity;
@@ -117,7 +116,7 @@ vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, 
   float b = cloudsNoiseVr(p + NL_CLOUD3_SHADOW_OFFSET*scale, t);
 
   // layer 2
-  p = 1.2 * p.yx + vec2(7.8, 9.2);
+  p = 1.0 * p.yx + vec2(5.8, 8.2);
   t *= 0.5;
   float c = cloudsNoiseVr(p, t);
   float d = cloudsNoiseVr(p + NL_CLOUD3_SHADOW_OFFSET*scale, t);
@@ -134,10 +133,9 @@ vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, 
 
   vec4 col;
   col.a = a + c*(1.0-a);
-  col.rgb = horizonCol + horizonCol.ggg;
-  col.rgb = mix(col.rgb, 0.5*(zenithCol + zenithCol.ggg), shadow*mix(b, d, c));
-  col.rgb *= 1.0-0.7*rain;
-
+  col.rgb = 2.3*horizonCol;
+  col.rgb = mix(col.rgb, zenithCol, shadow*mix(b, d, c));
+  col.rgb *= 1.0-0.5*rain;
   return col;
 }
 
