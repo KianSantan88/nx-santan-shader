@@ -63,12 +63,22 @@ description = '''
 §4High (box clouds)
 Multilayer Box Clouds, Folliage waves, Glow leaks 
 '''
+
+
 [[subpack]]
 define = "MEDIUM_REALISTIC_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky"]
 description = '''
 §eMedium (realistic clouds)
 Realistic-ish clouds, no folliage waves, no glow and shimmer
+'''
+
+[[subpack]]
+define = "MEDIUM_BC_GALAXY"
+materials = ["Clouds", "RenderChunk", "Sky"]
+description = '''
+§eMedium (box clouds, galaxy)
+lalala
 '''
 
 [[subpack]]

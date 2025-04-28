@@ -69,8 +69,8 @@
 /* Sky colors - zenith=top, horizon=bottom */
 #define NL_DAY_ZENITH_COL    vec3(0.15,0.35,0.7)
 #define NL_DAY_HORIZON_COL   vec3(0.494,0.694,0.988)
-#define NL_NIGHT_ZENITH_COL  vec3(0.059, 0.067, 0.569)
-#define NL_NIGHT_HORIZON_COL vec3(0.102, 0.118, 0.941)
+#define NL_NIGHT_ZENITH_COL  vec3(0.0,0.0,0.20)
+#define NL_NIGHT_HORIZON_COL vec3(0.0,0.0,0.20)
 #define NL_RAIN_ZENITH_COL   vec3(0.2,0.25,0.3)
 #define NL_RAIN_HORIZON_COL  vec3(0.2,0.25,0.3)
 #define NL_END_ZENITH_COL    vec3(0.004,0.024,0.04)
@@ -174,7 +174,7 @@
 #define NL_SHOOTING_STAR_DELAY 30.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-//#define NL_GALAXY_STARS 3.6           // [toggle] 0.1 dim - 4.0 bright
+//#define NL_GALAXY_STARS 4.0           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 1.0          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.03            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.0    // 0.0 invisible - 1.0 visible
@@ -250,6 +250,12 @@
   #define NL_CLOUD_TYPE 0
 #endif
 
+#ifdef MEDIUM_BC_GALAXY
+  #undef  NL_CLOUD_TYPE
+  #define NL_CLOUD_TYPE 0
+  #define NL_GALAXY_STARS 4.0
+#endif
+
 #ifdef MEDIUM_REALISTIC_CLOUDS
   #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 3
@@ -259,7 +265,7 @@
   #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #define NL_CLOUD0_MULTILAYER
-  #define NL_GALAXY_STARS 3.6
+  #define NL_GALAXY_STARS 4.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
@@ -271,7 +277,7 @@
   #undef  NL_CLOUD2_STEPS
   #define NL_CLOUD2_STEPS 16
   #define NL_CLOUD2_LAYER2
-  #define NL_GALAXY_STARS 3.6
+  #define NL_GALAXY_STARS 4.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
@@ -280,7 +286,7 @@
 #ifdef HIGH_REALISTIC_CLOUDS
   #undef  NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 3
-  #define NL_GALAXY_STARS 3.6
+  #define NL_GALAXY_STARS 4.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
@@ -294,7 +300,7 @@
   #define NL_WATER_CLOUD_REFLECTION
   #define NL_WATER_REFL_MASK
   #define NL_CLOUD_SHADOW 
-  #define NL_GALAXY_STARS 3.6
+  #define NL_GALAXY_STARS 4.0
   #define NL_GLOW_LEAK 1.0
   #define NL_GLOW_SHIMMER 0.8
   #define NL_PLANTS_WAVE 0.03
