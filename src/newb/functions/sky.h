@@ -117,7 +117,7 @@ vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 v, float t){
 
   float f = (1.0*g + 0.8*smoothstep(1.0,-0.1,v.y));
   float h = (1.0*g + 1.2*smoothstep(0.9,-0.2,v.y));
-  vec3 mixHorizon = mix(horizonCol, vec3(1.36,1.02,1.92), 1.0);
+  vec3 mixHorizon = mix(horizonCol, vec3(0.36,0.02,1.0), 1.0);
   sky += mix(zenithCol, mixHorizon, f*f);
   sky += (g*g*g*g*0.6 + 0.4*h*h*h*h);
 
@@ -254,33 +254,44 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
 
   t *= NL_GALAXY_SPEED;
 
-  // rotate space
+  // Rotate space
   float cosb = sin(0.2*t);
   float sinb = cos(0.2*t);
   vdir.xy = mul(mat2(cosb, sinb, -sinb, cosb), vdir.xy);
 
-  // noise
+  // Noise
   float n0 = 0.5 + 0.5*sin(5.0*vdir.x)*sin(5.0*vdir.y - 0.5*t)*sin(5.0*vdir.z + 0.5*t);
   float n1 = noise3D(15.0*vdir + sin(0.85*t + 1.3));
   float n2 = noise3D(50.0*vdir + 1.0*n1 + sin(0.7*t + 1.0));
   float n3 = noise3D(200.0*vdir - 10.0*sin(0.4*t + 0.500));
 
-  // stars
-  n3 = smoothstep(0.04,0.3,n3+0.02*n2);
+  // Stars
+  n3 = smoothstep(0.04, 0.3, n3 + 0.02*n2);
   float gd = vdir.x + 0.1*vdir.y + 0.1*sin(10.0*vdir.z + 0.2*t);
-  float st = n1*n2*n3*n3*(1.0+70.0*gd*gd);
-  st = (1.0-st)/(1.0+400.0*st);
-  vec3 stars = vec3(0.078, 0.016, 0.997) * st; // Single color (white) for stars
+  float st = n1*n2*n3*n3*(1.0 + 70.0*gd*gd);
+  st = (1.0 - st)/(1.0 + 400.0*st);
+  vec3 stars = vec3(0.078, 0.016, 0.997) * st; // White stars
 
-  // glow
-  float gfmask = abs(vdir.x)-0.15*n1+0.04*n2+0.25*n0;
+  // Glow
+  float gfmask = abs(vdir.x) - 0.15*n1 + 0.04*n2 + 0.25*n0;
   float gf = 1.0 - (vdir.x*vdir.x + 0.03*n1 + 0.2*n0);
   gf *= gf;
   gf *= gf*gf;
-  gf *= 1.0-0.3*smoothstep(0.2, 0.3, gfmask);
-  gf *= 1.0-0.2*smoothstep(0.3, 0.4, gfmask);
-  gf *= 1.0-0.1*smoothstep(0.2, 0.1, gfmask);
-  stars += vec3(0.020, 0.196, 0.988) * (0.4*gf + 0.012); // Single color for glow
+  gf *= 1.0 - 0.3*smoothstep(0.2, 0.3, gfmask);
+  gf *= 1.0 - 0.2*smoothstep(0.3, 0.4, gfmask);
+  gf *= 1.0 - 0.1*smoothstep(0.2, 0.1, gfmask);
+  vec3 glow = vec3(0.020, 0.196, 0.988) * (0.4*gf + 0.012); // Base glow
+
+  // Horizon-based bloom
+  float horizonFactor = smoothstep(0.0, 0.2, abs(vdir.y)); // Stronger near horizon (vdir.y ~ 0)
+  horizonFactor = 1.0 - horizonFactor; // Invert to peak at horizon
+  float bloomIntensity = 0.3 * horizonFactor * (0.5 + 0.5*n1) * (1.0 - env.rainFactor);
+  bloomIntensity *= smoothstep(0.0, 0.5, gf); // Tie bloom to existing glow
+  vec3 bloomColor = vec3(0.05, 0.1, 0.8); // Blueish bloom for atmospheric effect
+  vec3 bloom = bloomColor * bloomIntensity;
+
+  // Combine stars, glow, and bloom
+  stars += glow + bloom;
 
   stars *= mix(1.0, NL_GALAXY_DAY_VISIBILITY, min(dot(fogColor, vec3(0.5,0.7,0.5)), 1.0));
 

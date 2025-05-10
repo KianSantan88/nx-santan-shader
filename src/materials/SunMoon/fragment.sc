@@ -38,15 +38,15 @@ void main() {
     if (isMoon) {
       uv = vec2(0.25,0.5)*(floor(uv*vec2(4.0,2.0)) + 0.5 + 10.0*v_pos.xz);
       g *= max(0.0, 1.0)* night;
-      vec3 precol = vec3(1.0,0.5,0.0);
+      vec3 precol = vec3(0.0,0.0,0.3);
       vec3 nightcol = vec3(0.18,0.20,0.4);
       nightcol *= max(0.0, 1.0)*night;
       color.rgb += g*mix(precol,nightcol, night);
     } else {
       g = mix(g, mix(g, 0.0,(FogColor.r-FogColor.b, 0.0)), dusk);
       uv = 0.5 + 10.0*v_pos.xz;
-      vec3 daycol = vec3(0.3, 0.27, 0.25);
-      vec3 dawncol = vec3(0.2,0.14,0.13);
+      vec3 daycol =  vec3(0.3,0.2,0.0);
+      vec3 dawncol = vec3(0.4,0.3,0.0);
       daycol *= max(0.5, 1.0)*day;
       dawncol *= max(0.5,1.0)*dusk;
       color.rgb += g*mix(daycol,dawncol, dusk);

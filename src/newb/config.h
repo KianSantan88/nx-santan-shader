@@ -51,7 +51,7 @@
 #define NL_NIGHT_SUN_COL   vec3(0.4,0.6,1.0)
 
 /* Ambient light on terrain (light that is added everywhere) */
-#define NL_NETHER_AMBIENT vec3(3.0,2.16,1.89)
+#define NL_NETHER_AMBIENT vec3(3.0,2.18,1.91)
 #define NL_END_AMBIENT    vec3(2.0,1.25,2.4)
 
 /* Torch colors */
@@ -97,8 +97,8 @@
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
 
 /* Water */
-#define NL_WATER_TRANSPARENCY 0.6 // 0.0 transparent ~ 1.0 normal
-#define NL_WATER_BUMP 0.0012        // 0.001 plain ~ 0.2 bumpy water
+#define NL_WATER_TRANSPARENCY 0.7 // 0.0 transparent ~ 1.0 normal
+#define NL_WATER_BUMP 0.1        // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_WAVE_SPEED  0.6  // 0.2 calm ~ 2.0 turbulent
 #define NL_WATER_TEX_OPACITY 1.0  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
@@ -206,9 +206,9 @@
 #define NL_WEATHER_PARTICLE_SIZE 0.4 // 0.5 tiny ~ 4.0 large
 
 /* Lava effects */
-#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
-#define NL_LAVA_NOISE_BUMP 0.5 // [toggle] 0.1 subtle ~ 0.8 massive waves
-#define NL_LAVA_NOISE_SPEED 0.05 // 0.0 still ~ 0.1 fast
+//#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
+#define NL_LAVA_NOISE_BUMP 0.8 // [toggle] 0.1 subtle ~ 0.8 massive waves
+#define NL_LAVA_NOISE_SPEED 0.08 // 0.0 still ~ 0.1 fast
 
 /*
   NEWB SHADER SUBPACK CONFIG
