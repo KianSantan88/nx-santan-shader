@@ -74,7 +74,7 @@ float noise3D(vec3 p){
 
 float fastVoronoi2(vec2 pos, float f) {
   vec4 p = pos.xyxy;
-  p.zw += p.wz*mix(vec2(0.4,-0.5), vec2(0.895, -0.937), vec2(0.698, -0.837));
+  p.zw += p.wz*vec2(0.4,0.5);
   p = fract(p) - 0.5;
   p *= p;
   return 1.0-f*min(p.x+p.y, p.z+p.w);
