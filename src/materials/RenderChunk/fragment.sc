@@ -46,6 +46,7 @@ void main() {
 
   diffuse.rgb *= color.rgb;
   diffuse.rgb += glow;
+  
 
   if (v_extra.b > 0.9) {
     diffuse.rgb += v_refl.rgb*v_refl.a;

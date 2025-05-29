@@ -6,16 +6,30 @@ $input v_texcoord0, v_posTime
 
 #ifndef INSTANCING
   #include <newb/main.sh>
-
+uniform vec4 FogColor;
   SAMPLER2D_AUTOREG(s_SkyTexture);
 #endif
 
 void main() {
   #ifndef INSTANCING
+    vec3 viewDir = normalize(v_posTime.xyz);
     vec4 diffuse = texture2D(s_SkyTexture, v_texcoord0);
 
-    vec3 color = renderEndSky(getEndHorizonCol(), getEndZenithCol(), normalize(v_posTime.xyz), v_posTime.w);
-    color += 2.8*diffuse.rgb; // stars
+    nl_environment env;
+    env.end = true;
+    env.underwater = v_posTime.w < 1.0;
+    env.rainFactor = 0.0;
+
+      vec3 color = renderEndSky(getEndHorizonCol(), getEndZenithCol(), viewDir, v_posTime.w);
+    
+
+    #ifdef NL_END_GALAXY_STARS
+    color.rgb += NL_END_GALAXY_STARS nlRenderGalaxy(viewDir, FogColor.rgb, env, v_posTime.w);
+    #endif
+
+    vec4 bh = renderBlackhole(viewDir, v_posTime.w);
+    color *= bh.a;
+    color += bh.rgb;
 
     color = colorCorrection(color);
 

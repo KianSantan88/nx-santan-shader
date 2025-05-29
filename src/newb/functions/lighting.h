@@ -73,10 +73,10 @@ vec3 nlLighting(
     light += mix(skycol.horizon, skycol.zenith, 0.5+uv1.y-0.5*lit.y)*(lit.y*(3.0-2.0*uv1.y)*(1.3 + (4.0*nightFactor) - rainDim));
 
     // shadow cast by top light
-    float shadow = step(0.93, uv1.y);
-    shadow = max(shadow, (1.0 - NL_SHADOW_INTENSITY + (0.6*NL_SHADOW_INTENSITY*nightFactor))*lit.y);
-    shadow *= shade > 0.8 ? 1.0 : 0.8;
-
+    float shadow = step(0.97, uv1.y);
+    shadow = max(shadow, (0.7 - 0.5*NL_SHADOW_INTENSITY + (0.3*NL_SHADOW_INTENSITY*nightFactor))*lit.y);
+    shadow *= shade > 0.8 ? 1.0 : 0.9;
+    
     // shadow cast by simple cloud
     #ifdef NL_CLOUD_SHADOW
       shadow *= smoothstep(0.6, 0.1, cloudNoise2D(2.0*wPos.xz*NL_CLOUD1_SCALE, t, env.rainFactor));

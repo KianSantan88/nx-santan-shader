@@ -61,6 +61,7 @@ vec3 getHorizonCol(float rainFactor, vec3 FOG_COLOR, vec3 fs) {
 }
 
 // tinting on horizon col
+
 vec3 getHorizonEdgeCol(vec3 horizonCol, float rainFactor, vec3 FOG_COLOR) {
   float val = 2.1*(1.1-FOG_COLOR.b)*FOG_COLOR.g*(1.0-rainFactor);
   horizonCol *= vec3_splat(1.0-val) + NL_DAWN_EDGE_COL*val;
@@ -80,7 +81,7 @@ vec3 renderOverworldSky(nl_skycolor skycol, vec3 viewDir) {
   // gradient 2  h^8 mix h^2
   float gradient1 = hsq*hsq;
   gradient1 *= gradient1;
-  float gradient2 = 0.6*gradient1 + 0.4*hsq;
+  float gradient2 = 0.7*gradient1 + 0.3*hsq;
   gradient1 *= gradient1;
 
   vec3 sky = mix(skycol.horizon, skycol.horizonEdge, gradient1);
@@ -97,35 +98,84 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
 
   float spread = smoothstep(0.0, 1.0, abs(viewDirX));
   float sunBloom = spread*spread;
-  sunBloom = 0.5*spread + sunBloom*sunBloom*sunBloom*1.5;
+  sunBloom = 1.0*spread + sunBloom*sunBloom*sunBloom*1.8;
 
   return NL_MORNING_SUN_COL*horizonEdgeCol*(sunBloom*factor*factor);
 }
 
+// custom end sky
+// Function to blend colors in the flares, smoothly alternating between two colors
+    vec3 getFlareColor(float angle, float t) {
+    // Smoother and more gradual oscillation in the color change of the flares
+    float mixFactor = 0.5 + 0.5 * sin(angle * 8.0 + t * 1.0);
+    return mix(FLARE_COLOR_1, FLARE_COLOR_2, mixFactor);
+}
 
-vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
-  t *= 0.1;
-  float a = atan2(viewDir.x, viewDir.z);
+    vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 v, float t) {
+    vec3 sky = vec3(0.0, 0.0, 0.0);
+    v.y = smoothstep(-1.0, 1.6, abs(v.y)); // Smoother transition between the horizon and the zenith
 
-  float n1 = 0.5 + 0.5*sin(3.0*a + t + 10.0*viewDir.x*viewDir.y);
-  float n2 = 0.5 + 0.5*sin(5.0*a + 0.5*t + 5.0*n1 + 0.1*sin(40.0*a -4.0*t));
+    float a = atan(v.x, v.z); // Calculate the angle for the flares
 
-  float waves = 0.7*n2*n1 + 0.3*n1;
+    // Adjustments to flare behavior to make them more defined
+    float s = sin(a * 2.0 + t * 0.8); // Higher frequency for thinner, straighter flares
+    s = pow(abs(s), 2.0); // Use pow to make the flares sharper and taller
+    s *= 0.4 + 0.7 * sin(a * 10.0 - 0.3 * t); // Amplitude adjustment for greater height and variation
+    float g = smoothstep(1.2 - s, -2.0, v.y); // Adjustment to control the flare height
 
-  float grad = 0.5 + 0.5*viewDir.y;
-  float streaks = waves*(1.0 - grad*grad*grad);
-  streaks += (1.0-streaks)*smoothstep(1.0-waves, -1.0, viewDir.y);
+    // Sky color blending based on position
+    float f = (2.0 * g + 1.0 * smoothstep(1.0, -0.1, v.y)); // Adjustment to compensate for change in g
+    float h = (1.6 * g + 1.3 * smoothstep(0.9, -0.2, v.y)); // Adjustment to compensate for change in g
 
-  float f = 0.3*streaks + 0.7*smoothstep(1.0, -0.5, viewDir.y);
-  float h = streaks*streaks;
-  float g = h*h;
-  g *= g;
+    // Mix the sky color
+    sky += mix(zenithCol, horizonCol, f * f * f);
 
-  vec3 sky = mix(zenithCol, horizonCol, f*f);
-  sky += (0.1*streaks + 2.0*g*g*g + h*h*h)*vec3(2.0,0.5,0.0);
-  sky += 0.25*streaks*spectrum(sin(2.0*viewDir.x*viewDir.y+t));
+    // Get the color of the flares
+    vec3 flareColor = getFlareColor(a, t);
 
-  return sky;
+    // Apply the flare color with more intensity and definition
+    sky += (g * g * 1.5 + 3.5 * pow(h, 4.0)) * flareColor; // Adjustment for more prominent and defined flares
+
+    return sky;
+}
+
+// black hole
+  vec4 renderBlackhole(vec3 vdir, float t) {
+  t *= NL_BH_SPEED;
+
+  float r = 3.0;
+  r += 0.0001*t;
+  vec3 vr = vdir;
+  // manual calculation
+  float cx = cos(r);
+  float sx = sin(r);
+  vr.xy = vec2(cx * vr.x - sx * vr.y, sx * vr.x + cx * vr.y);
+  //vr.xy = mat2(cos(r), -sin(r), sin(r), cos(r)) * vr.xy;
+  //r *= 2.0;
+  //vr.yz = mat2(cos(r), -sin(r), sin(r), cos(r)) * vr.yz;
+
+  vec3 vd = vdir-vec3(0.0, 1.0, 0.0);
+  float nl = sin(15.0*vd.x + t)*sin(15.0*vd.y - t)*sin(15.0*vd.z + t);
+  float a = atan2(vd.x, vd.z);
+
+  float d = NL_BH_DIST*length(vd + 0.003*nl);
+  //d *= 1.2 + 0.8*sin(0.2*t);
+  float d0 = (0.6-d)/0.6;
+  float dm0 = 1.0-max(d0, 0.0);
+
+  float gl = 1.0-clamp(-0.3*d0, 0.0, 1.0);
+  float gla = pow(1.0-min(abs(d0), 1.0), 8.0);
+  float gl8 = pow(gl, 8.0);
+
+  float hole = 0.9*pow(dm0, 32.0) + 0.1*pow(dm0, 3.0);
+  float bh = (gla + 0.8*gl8 + 0.2*gl8*gl8) * hole;
+
+  float df = sin(3.0*a - 4.0*d + 24.0*pow(1.4-d, 4.0) + t);
+  df *= 0.9 + 0.1*sin(8.0*a + d + 4.0*t - 4.0*df);
+  bh *= 1.0 + pow(df, 4.0)*hole*max(1.0-bh, 0.0);
+
+  vec3 col = bh*4.0*mix(NL_BH_COL_LOW, NL_BH_COL_HIGH , min(bh, 1.0));
+  return vec4(col, hole);
 }
 
 vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, vec3 FOG_COLOR, float t) {
@@ -211,7 +261,7 @@ vec3 nlRenderShootingStar(vec3 viewDir, vec3 FOG_COLOR, float t) {
   return s*vec3(0.8, 0.9, 1.0);
 }
 
-// Galaxy stars - needs further optimization
+// custom galaxy
 vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   if (env.underwater) {
     return vec3_splat(0.0);
@@ -230,27 +280,16 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   float n2 = noise3D(50.0*vdir + 1.0*n1 + sin(0.7*t + 1.0));
   float n3 = noise3D(200.0*vdir - 10.0*sin(0.4*t + 0.500));
 
-  // stars
-  n3 = smoothstep(0.04,0.3,n3+0.02*n2);
+  // stars (now single color)
+  n3 = smoothstep(0.04, 0.3, n3 + 0.02*n2);
   float gd = vdir.x + 0.1*vdir.y + 0.1*sin(10.0*vdir.z + 0.2*t);
-  float st = n1*n2*n3*n3*(1.0+70.0*gd*gd);
-  st = (1.0-st)/(1.0+400.0*st);
-  vec3 stars = (0.8 + 0.2*sin(vec3(8.0,6.0,10.0)*(2.0*n1+0.8*n2) + vec3(0.0,0.4,0.82)))*st;
+  float st = n1 * n2 * n3 * n3 * (1.0 + 70.0 * gd * gd);
+  st = (1.0 - st) / (1.0 + 400.0 * st);
+  vec3 stars = vec3(0.2, 0.1, 1.0) * st; // <Stars color here?
+  
 
-  // glow
-  float gfmask = abs(vdir.x)-0.15*n1+0.04*n2+0.25*n0;
-  float gf = 1.0 - (vdir.x*vdir.x + 0.03*n1 + 0.2*n0);
-  gf *= gf;
-  gf *= gf*gf;
-  gf *= 1.0-0.3*smoothstep(0.2, 0.3, gfmask);
-  gf *= 1.0-0.2*smoothstep(0.3, 0.4, gfmask);
-  gf *= 1.0-0.1*smoothstep(0.2, 0.1, gfmask);
-  vec3 gfcol = normalize(vec3(n0, cos(2.0*vdir.y), sin(vdir.x+n0)));
-  stars += (0.4*gf + 0.012)*mix(vec3(0.5, 0.5, 0.5), gfcol*gfcol, NL_GALAXY_VIBRANCE);
-
-  stars *= mix(1.0, NL_GALAXY_DAY_VISIBILITY, min(dot(fogColor, vec3(0.5,0.7,0.5)), 1.0)); // maybe add day factor to env for global use?
-
-  return stars*(1.0-env.rainFactor);
+  stars *= mix(1.0, NL_GALAXY_DAY_VISIBILITY, min(dot(fogColor, vec3(0.5, 0.7, 0.5)), 1.0));
+  return stars * (1.0 - env.rainFactor);
 }
 
 nl_skycolor nlUnderwaterSkyColors(float rainFactor, vec3 FOG_COLOR) {
