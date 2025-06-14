@@ -81,7 +81,7 @@ vec3 renderOverworldSky(nl_skycolor skycol, vec3 viewDir) {
   // gradient 2  h^8 mix h^2
   float gradient1 = hsq*hsq;
   gradient1 *= gradient1;
-  float gradient2 = 0.7*gradient1 + 0.3*hsq;
+  float gradient2 = 0.6*gradient1 + 0.1*hsq;
   gradient1 *= gradient1;
 
   vec3 sky = mix(skycol.horizon, skycol.horizonEdge, gradient1);
@@ -115,7 +115,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
     vec3 sky = vec3(0.0, 0.0, 0.0);
     v.y = smoothstep(-1.0, 1.6, abs(v.y)); // Smoother transition between the horizon and the zenith
 
-    float a = atan(v.x, v.z); // Calculate the angle for the flares
+    float a = atan2(v.x, v.z); // Calculate the angle for the flares
 
     // Adjustments to flare behavior to make them more defined
     float s = sin(a * 2.0 + t * 0.8); // Higher frequency for thinner, straighter flares
@@ -175,6 +175,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
   bh *= 1.0 + pow(df, 4.0)*hole*max(1.0-bh, 0.0);
 
   vec3 col = bh*4.0*mix(NL_BH_COL_LOW, NL_BH_COL_HIGH , min(bh, 1.0));
+  
   return vec4(col, hole);
 }
 
