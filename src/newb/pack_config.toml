@@ -1,3 +1,4 @@
+
 name = "Newb Santan Revitalized"
 version = [0, 2, 0]
 min_supported_mc_version = [1, 21, 20]
@@ -96,6 +97,13 @@ description = '''
 §a Lowest
 Soft clouds, disabled auroras, waves, fog, reflection, underwater streaks, shimmer, leaks, galaxy, shooting stars.
 '''
+
+#[[subpack]]
+#define = "LITE"
+#materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
+#description = '''
+#Many effects disabled. A bit lighter!
+#'''
 
 [[subpack]]
 define = "DEFAULT"
