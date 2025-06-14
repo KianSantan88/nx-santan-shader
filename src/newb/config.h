@@ -228,9 +228,7 @@
   Build tool will enable corresponding flags when compiling.
 */
 
-<<<<<<< HEAD
-#ifdef LOWEST
-=======
+
 #ifdef LITE
   #define NO_WAVE
   #undef NL_GLOW_SHIMMER
@@ -242,36 +240,7 @@
   #undef NL_RAIN_MIST_OPACITY
   #undef NL_CLOUDY_FOG
   #undef NL_ENTITY_EDGE_HIGHLIGHT
-#endif
-
-#ifdef NO_WAVE_NO_FOG
-  #define NO_WAVE
-  #define NO_FOG
-#endif
-
-#ifdef NO_FOG
-  #undef NL_FOG
-#endif
-
-#ifdef NO_WAVE
-  #undef NL_PLANTS_WAVE
-  #undef NL_LANTERN_WAVE
->>>>>>> 262a60191a882aae0f3721429662376063e945ee
-  #undef NL_UNDERWATER_WAVE
-  #undef NL_UNDERWATER_STREAKS
-  #undef NL_FOG
-  #undef NL_PLANTS_WAVE
-  #undef NL_RAIN_MIST_OPACITY
-  #undef NL_CLOUDY_FOG
-  #undef NL_WATER_WAVE
-  #undef NL_WATER_FOG_FADE
-  #undef NL_WATER_CLOUD_REFLECTION
-  #undef NL_WATER_REFL_MASK
-  #undef NL_AURORA
-  #undef NL_GALAXY_STARS
-  #undef NL_SHOOTING_STAR
   #undef NL_BH
-  #undef NL_LAVA_NOISE
 #endif
 
 #ifdef MEDIUM_ROUNDED_CLOUDS
