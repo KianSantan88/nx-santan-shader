@@ -86,7 +86,7 @@ vec4 renderCloudsRounded(
     d.y = mix(d.y, pos.y, m);
     pos += deltaP;
   }
-  d.x *= smoothstep(0.03, 0.1, d.x);
+  d.x *= smoothstep(0.5, 1.0, d.x);
   d.x /= (stepsf/density) + d.x;
 
   if (vPos.y < 0.0) { // view from top
@@ -94,48 +94,51 @@ vec4 renderCloudsRounded(
   }
 
   vec4 col = vec4(zenithCol + horizonCol, d.x);
-  col.rgb = mix(col.rgb, mix(col.rgb,zenithCol,0.4), smoothstep(1.0, 0.3,d.y));
-  col.rgb *= 1.0 - 0.8*rain;
+  col.rgb += dot(col.rgb, vec3(0.3,0.4,0.3))*d.y*d.y;
+  col.rgb *= 1.0 - 0.5*rain;
   return col;
 }
 
-float cloudsNoiseVr(vec2 p, float t) {
-  float n = fastVoronoi2(p + t, 1.8);
-  n *= fastVoronoi2(3.0*p + t, 1.5);
-  n *= fastVoronoi2(9.0*p + t, 0.4);
-  n *= fastVoronoi2(27.0*p + t, 0.1);
-  //n *= fastVoronoi2(82.0*p + t, 0.02); // more quality
+// realistic clouds
+float cloudsNoiseVr2(vec2 pos, float t) {
+  float n = fastVoronoi2(2.5*pos + t, 1.0);
+  n *= fastVoronoi2(4.0*pos + t, 1.0);
+  n *= fastVoronoi2(12.0*pos + t, 0.3);
+  n *= fastVoronoi2(27.0*pos + t, 0.1);
+  n *= fastVoronoi2(81.0*pos + t, 0.03);
   return n*n;
 }
+
+
 vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, const vec2 scale, const float velocity, const float shadow) {
   p *= scale;
   t *= velocity;
 
-  // layer 1
-  float a = cloudsNoiseVr(p, t);
-  float b = cloudsNoiseVr(p + NL_CLOUD3_SHADOW_OFFSET*scale, t);
-
+  float a = cloudsNoiseVr2(p*2.0, t);
+  float b =   a * smoothstep(0.2, 0.8, a  * NL_CLOUD3_SHADOW_OFFSET  );
+//a*=0.;
   // layer 2
-  p = 1.0 * p.yx + vec2(5.8, 8.2);
+  p = 1.5 * p + vec2(8.8, 6.8);
   t *= 0.5;
-  float c = cloudsNoiseVr(p, t);
-  float d = cloudsNoiseVr(p + NL_CLOUD3_SHADOW_OFFSET*scale, t);
+  float c = cloudsNoiseVr2(p, t);
+  float d = c * smoothstep(0.2, 0.8, c   * NL_CLOUD3_SHADOW_OFFSET);
 
   // higher = less clouds thickness
   // lower separation betwen x & y = sharper
-  vec2 tr = vec2(0.6, 0.7) - 0.12*rain;
+  vec2 tr = vec2(0.55, 0.75) - 0.12*rain;
   a = smoothstep(tr.x, tr.y, a);
   c = smoothstep(tr.x, tr.y, c);
 
-  // shadow
+// shadow
   b *= smoothstep(0.2, 0.8, b);
   d *= smoothstep(0.2, 0.8, d);
 
   vec4 col;
   col.a = a + c*(1.0-a);
-  col.rgb = 2.5*horizonCol;
-  col.rgb = mix(col.rgb, zenithCol, shadow*mix(b, d, c));
+  col.rgb = horizonCol + horizonCol.ggg;
+  col.rgb = mix(col.rgb, 0.5*(zenithCol + zenithCol.ggg), shadow*mix(b, d, c));
   col.rgb *= 1.0-0.5*rain;
+
   return col;
 }
 

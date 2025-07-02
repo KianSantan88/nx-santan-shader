@@ -81,7 +81,7 @@ vec3 renderOverworldSky(nl_skycolor skycol, vec3 viewDir) {
   // gradient 2  h^8 mix h^2
   float gradient1 = hsq*hsq;
   gradient1 *= gradient1;
-  float gradient2 = 0.6*gradient1 + 0.1*hsq;
+  float gradient2 = 0.6*gradient1 + 0.3*hsq;
   gradient1 *= gradient1;
 
   vec3 sky = mix(skycol.horizon, skycol.horizonEdge, gradient1);
@@ -107,7 +107,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
 // Function to blend colors in the flares, smoothly alternating between two colors
     vec3 getFlareColor(float angle, float t) {
     // Smoother and more gradual oscillation in the color change of the flares
-    float mixFactor = 0.5 + 0.5 * sin(angle * 8.0 + t * 1.0);
+    float mixFactor = 0.5 + 0.5 * sin(angle * 8.0 + t * 0.6);
     return mix(FLARE_COLOR_1, FLARE_COLOR_2, mixFactor);
 }
 
@@ -143,7 +143,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
   vec4 renderBlackhole(vec3 vdir, float t) {
   t *= NL_BH_SPEED;
 
-  float r = 3.0;
+  float r = 2.5;
   r += 0.0001*t;
   vec3 vr = vdir;
   // manual calculation
@@ -154,7 +154,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
   //r *= 2.0;
   //vr.yz = mat2(cos(r), -sin(r), sin(r), cos(r)) * vr.yz;
 
-  vec3 vd = vdir-vec3(0.0, 1.0, 0.0);
+  vec3 vd = vr-vec3(0.0, -1.0, 0.0);
   float nl = sin(15.0*vd.x + t)*sin(15.0*vd.y - t)*sin(15.0*vd.z + t);
   float a = atan2(vd.x, vd.z);
 
@@ -251,15 +251,15 @@ vec3 nlRenderShootingStar(vec3 viewDir, vec3 FOG_COLOR, float t) {
   uv.y += viewDir.y * 3.0;
 
   // draw star
-  float g = 1.0-min(abs((uv.x-0.95))*20.0, 1.0); // source glow
+  float g = 1.0-min(abs((uv.x-0.95))*15.0, 1.0); // source glow
   float s = 1.0-min(abs(8.0*uv.y), 1.0); // line
   s *= s*s*smoothstep(-1.0+1.96*t1, 0.98-t, uv.x); // decay tail
   s *= s*s*smoothstep(1.0, 0.98-t0, uv.x); // decay source
   s *= 1.0-t1; // fade in
   s *= 1.0-t0; // fade out
-  s *= 0.7 + 16.0*g*g;
+  s *= 0.8 + 18.0*g*g;
   s *= max(1.0-FOG_COLOR.r-FOG_COLOR.g-FOG_COLOR.b, 0.0); // fade out during day
-  return s*vec3(0.8, 0.9, 1.0);
+  return s*vec3(0.2, 0.0, 0.8);
 }
 
 // custom galaxy

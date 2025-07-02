@@ -155,11 +155,11 @@ def run(args):
 
     patch_warning = "Only works with "
     if profile == 'android':
-        patch_warning += "Patched Minecraft"
+        patch_warning += "MB loader or Patched Minecraft"
     elif profile == 'windows':
-        patch_warning += "BetterRenderDragon"
+        patch_warning += "BetterRenderDragon and Matject"
     elif profile == 'merged':
-        patch_warning += "BetterRenderDragon or Patched Minecraft"
+        patch_warning += "BetterRenderDragon and Matject or Patched Minecraft"
     else:  # ios
         patch_warning = "Materials need to be installed manually for shader to work"
 
