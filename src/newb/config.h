@@ -102,7 +102,7 @@
 #define NL_WATER_WAVE_SPEED  0.4  // 0.2 calm ~ 2.0 turbulent
 #define NL_WATER_TEX_OPACITY 0.2  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
-//#define NL_WATER_CLOUD_REFLECTION // [toggle] simple clouds/aurora reflection
+//#define NL_WATER_CLOUD_AURORA_REFLECTION // [toggle] simple clouds/aurora reflection
 //#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
 #define NL_WATER_TINT vec3(0.52,0.8,0.72)
 
@@ -234,7 +234,7 @@
   #undef NL_LAVA_NOISE
   #undef NL_WEATHER_SPECK
   #undef NL_SHOOTING_STAR
-  #undef NL_WATER_CLOUD_REFLECTION
+  #undef NL_WATER_CLOUD_AURORA_REFLECTION
   #undef NL_UNDERWATER_STREAKS
   #undef NL_RAIN_MIST_OPACITY
   #undef NL_CLOUDY_FOG
