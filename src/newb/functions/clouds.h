@@ -86,7 +86,7 @@ vec4 renderCloudsRounded(
     d.y = mix(d.y, pos.y, m);
     pos += deltaP;
   }
-  d.x *= smoothstep(0.5, 1.0, d.x);
+  d.x *= smoothstep(1.0, 2.0, d.x);
   d.x /= (stepsf/density) + d.x;
 
   if (vPos.y < 0.0) { // view from top

@@ -1,6 +1,7 @@
 #ifndef DETECTION_H
 #define DETECTION_H
 
+
 struct nl_environment {
   bool end;
   bool nether;
@@ -45,13 +46,17 @@ float detectRain(vec3 FOG_CONTROL) {
   return val*val*(3.0 - 2.0*val);
 }
 
+float detectTime(vec3 FOG_COLOR) {
+  return 1.0 - min(dot(FOG_COLOR, vec3(0.5, 0.7, 0.5)), 1.0);
+}
+
 nl_environment nlDetectEnvironment(vec3 FOG_COLOR, vec3 FOG_CONTROL) {
   nl_environment e;
   e.end = detectEnd(FOG_COLOR, FOG_CONTROL.xy);
   e.nether = detectNether(FOG_COLOR, FOG_CONTROL.xy);
   e.underwater = detectUnderwater(FOG_COLOR, FOG_CONTROL.xy);
   e.rainFactor = detectRain(FOG_CONTROL.xyz);
-  e.dayFactor = min(dot(FOG_COLOR, vec3(0.5,0.7,0.5)), 1.0);
+  e.dayFactor = detectTime(FOG_COLOR);
   return e;
 }
 

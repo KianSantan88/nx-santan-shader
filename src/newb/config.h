@@ -29,8 +29,8 @@
 
 /* Color correction */
 #define NL_TONEMAP_TYPE 3              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
-#define NL_GAMMA 1.3                  // 0.3 low ~ 2.0 high
-#define NL_EXPOSURE 1.0              // [toggle] 0.5 dark ~ 3.0 bright
+#define NL_GAMMA 1.4                  // 0.3 low ~ 2.0 high
+#define NL_EXPOSURE 0.8              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.0            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 //#define NL_TINT                      // [toggle] enable light/dark tone tinting
 #define NL_TINT_LOW  vec3(0.3,0.5,1.4) // color tint for dark tone
@@ -46,7 +46,7 @@
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
 
 /* Sun/moon light color on terrain */
-#define NL_MORNING_SUN_COL vec3(1.0, 0.58, 0.15)   // warmer orange-pink hue, matching the horizon glow
+#define NL_MORNING_SUN_COL vec3(1.0, 0.60, 0.15)   // warmer orange-pink hue, matching the horizon glow
 #define NL_NOON_SUN_COL    vec3(1.0, 0.88, 0.4)    // richer golden midday light, balanced
 #define NL_NIGHT_SUN_COL   vec3(0.4,0.6,1.0)
 
@@ -61,7 +61,7 @@
 #define NL_END_TORCH_COL        vec3(0.92,0.92,1.0)
 
 /* Fog */
-#define NL_FOG 0.6                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
+#define NL_FOG 0.5                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
 #define NL_MIST_DENSITY 0.5      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.5 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 //#define NL_CLOUDY_FOG 0.1         // [toggle] 0.0 subtle - 0.8 dense fog clouds
@@ -70,14 +70,14 @@
 #define NL_DAY_ZENITH_COL    vec3(0.15,0.35,0.75)
 #define NL_DAY_HORIZON_COL   vec3(0.46,0.65,0.99)
 #define NL_NIGHT_ZENITH_COL  vec3(0.0004, 0.0, 0.05)
-#define NL_NIGHT_HORIZON_COL vec3(0.055, 0.0, 0.536467)
+#define NL_NIGHT_HORIZON_COL vec3(0.055, 0.001, 0.536467)
 #define NL_RAIN_ZENITH_COL   vec3(0.4,0.45,0.5)
 #define NL_RAIN_HORIZON_COL  vec3(0.4,0.45,0.5)
 #define NL_END_ZENITH_COL    vec3(0.05,0.25,0.4875)
 #define NL_END_HORIZON_COL   vec3(0.05,0.25,0.4875)
 #define NL_DAWN_ZENITH_COL   vec3(0.015,0.045,0.1)
-#define NL_DAWN_HORIZON_COL  vec3(0.98,0.4,0.0)
-#define NL_DAWN_EDGE_COL     vec3(0.98,0.4,0.0)
+#define NL_DAWN_HORIZON_COL  vec3(0.9,0.5,0.0)
+#define NL_DAWN_EDGE_COL     vec3(0.9,0.5,0.0)
 /* Rainbow */
 //#define NL_RAINBOW         // [toggle] enable rainbow in sky
 #define NL_RAINBOW_CLEAR 0.0 // 0.3 subtle ~ 1.7 bright during clear
@@ -150,7 +150,7 @@
 /* Realistic cloud settings */
 #define NL_CLOUD3_SCALE vec2(0.02, 0.02) // 0.003 large ~ 1.0 tiny
 #define NL_CLOUD3_SPEED 0.005            // 0.0 static ~ 4.0 fast moving
-#define NL_CLOUD3_SHADOW 0.5             // 0.1 subtle ~ 1.0 dark
+#define NL_CLOUD3_SHADOW 0.3             // 0.1 subtle ~ 1.0 dark
 #define NL_CLOUD3_SHADOW_OFFSET 1.0      // 0.05 minimal ~ 1.0 large
 
 /* Aurora settings */

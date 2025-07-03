@@ -259,10 +259,10 @@ vec3 nlRenderShootingStar(vec3 viewDir, vec3 FOG_COLOR, float t) {
   s *= 1.0-t0; // fade out
   s *= 0.8 + 18.0*g*g;
   s *= max(1.0-FOG_COLOR.r-FOG_COLOR.g-FOG_COLOR.b, 0.0); // fade out during day
-  return s*vec3(0.2, 0.0, 0.8);
+  return s*vec3(0.2, 0.1, 1.0);
 }
 
-// custom galaxy
+// Galaxy stars - needs further optimization
 vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   if (env.underwater) {
     return vec3_splat(0.0);
@@ -281,14 +281,12 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   float n2 = noise3D(50.0*vdir + 1.0*n1 + sin(0.7*t + 1.0));
   float n3 = noise3D(200.0*vdir - 10.0*sin(0.4*t + 0.500));
 
-  // stars (now single color)
-  n3 = smoothstep(0.04, 0.3, n3 + 0.02*n2);
+  // stars
+  n3 = smoothstep(0.04,0.3,n3+0.02*n2);
   float gd = vdir.x + 0.1*vdir.y + 0.1*sin(10.0*vdir.z + 0.2*t);
-  float st = n1 * n2 * n3 * n3 * (1.0 + 70.0 * gd * gd);
-  st = (1.0 - st) / (1.0 + 400.0 * st);
-  vec3 stars = vec3(0.2, 0.1, 1.0) * st; // <Stars color here?
-  
-
+  float st = n1*n2*n3*n3*(1.0+70.0*gd*gd);
+  st = (1.0-st)/(1.0+400.0*st);
+  vec3 stars = (0.8 + 0.2*sin(vec3(8.0,6.0,10.0)*(2.0*n1+0.8*n2) + vec3(0.0,0.4,0.82)))*st;
 
   // glow
   float gfmask = abs(vdir.x)-0.15*n1+0.04*n2+0.25*n0;
@@ -299,7 +297,7 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   gf *= 1.0-0.2*smoothstep(0.3, 0.4, gfmask);
   gf *= 1.0-0.1*smoothstep(0.2, 0.1, gfmask);
   vec3 gfcol = normalize(vec3(n0, cos(2.0*vdir.y), sin(vdir.x+n0)));
-  stars += (0.4*gf + 0.012)*mix(vec3(0.7, 0.7, 0.7), gfcol*gfcol, NL_GALAXY_VIBRANCE);
+  stars += (0.4*gf + 0.012)*mix(vec3(0.5, 0.5, 0.5), gfcol*gfcol, NL_GALAXY_VIBRANCE);
 
   stars *= mix(1.0, NL_GALAXY_DAY_VISIBILITY, env.dayFactor);
 

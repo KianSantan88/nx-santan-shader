@@ -37,7 +37,7 @@ define = "HIGH_REALISTIC_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
 §4High (realistic clouds)
-Realistic-ish clouds and the usual.
+- §oRealistic-ish clouds and the usual.
 '''
 
 [[subpack]]
@@ -45,9 +45,20 @@ define = "HIGH_ROUNDED_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
 §4High (rounded clouds)
-Multilayer 16 steps Rounded Clouds
-Folliage waves
-Glow leaks and Shimmer
+- §oMultilayer 16 steps Rounded Clouds
+- §oFolliage waves
+- §oGlow leaks and Shimmer
+'''
+
+[[subpack]]
+define = "HIGH_ROUNDED_CLOUDS_NO_AURORA"
+materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
+description = '''
+§4High (rounded clouds, aurora disabled)
+- §oMultilayer 16 steps Rounded Clouds
+- §oNo Aurora
+- §oFolliage waves
+- §oGlow leaks and Shimmer
 '''
 
 [[subpack]]
@@ -55,9 +66,9 @@ define = "HIGH_BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
 §4High (box clouds)
-Multilayer Box Clouds
-Folliage waves
-Glow leaks and Shimmer
+- §oMultilayer Box Clouds
+- §oFolliage waves
+- §oGlow leaks and Shimmer
 '''
 
 
@@ -66,9 +77,9 @@ define = "MEDIUM_REALISTIC_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
 §eMedium (realistic clouds)
-Realistic-ish clouds
-No Folliage waves
-No Glow and Shimmer
+- §oRealistic-ish clouds
+- §oNo Folliage waves
+- §oNo Glow and Shimmer
 '''
 
 
@@ -77,9 +88,9 @@ define = "MEDIUM_BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
 §eMedium (box clouds)
-Box Clouds
-No Folliage Waves
-No Glow and Shimmer
+- §oBox Clouds
+- §oNo Folliage Waves
+- §oNo Glow and Shimmer
 '''
 
 [[subpack]]
@@ -87,20 +98,20 @@ define = "MEDIUM_ROUNDED_CLOUDS"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
 §eMedium (rounded clouds)
-Rounded Clouds
-No Folliage Waves
-No Glow and Shimmer
+- §oRounded Clouds
+- §oNo Folliage Waves
+- §oNo Glow and Shimmer
 '''
 
 [[subpack]]
 define = "MEDIUM_ROUNDED_CLOUDS_NO_AURORA"
 materials = ["Clouds", "RenderChunk", "Sky", "EndSky"]
 description = '''
-§eMedium (rounded clouds)
-Rounded Clouds
-No Aurora
-No Folliage Waves 
-No Glow and Shimmer
+§eMedium (rounded clouds, aurora disabled)
+- §oRounded Clouds
+- §oNo Aurora
+- §oNo Folliage Waves 
+- §oNo Glow and Shimmer
 '''
 
 [[subpack]]
@@ -108,7 +119,7 @@ define = "LITE"
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 description = '''
 §aLite (soft clouds)
-Many effects disabled. A bit lighter!
+- §oMany effects disabled. A bit lighter!
 '''
 
 [[subpack]]
