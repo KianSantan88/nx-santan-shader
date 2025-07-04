@@ -76,8 +76,8 @@
 #define NL_END_ZENITH_COL    vec3(0.05,0.25,0.4875)
 #define NL_END_HORIZON_COL   vec3(0.05,0.25,0.4875)
 #define NL_DAWN_ZENITH_COL   vec3(0.015,0.045,0.1)
-#define NL_DAWN_HORIZON_COL  vec3(0.9,0.5,0.0)
-#define NL_DAWN_EDGE_COL     vec3(0.9,0.5,0.0)
+#define NL_DAWN_HORIZON_COL  vec3(0.9,0.45,0.0)
+#define NL_DAWN_EDGE_COL     vec3(0.9,0.45,0.0)
 /* Rainbow */
 //#define NL_RAINBOW         // [toggle] enable rainbow in sky
 #define NL_RAINBOW_CLEAR 0.0 // 0.3 subtle ~ 1.7 bright during clear
@@ -97,10 +97,10 @@
 #define NL_WAVE_RANGE 10.0     // 6.0 upto 6 blocks ~ 32.0 upto 32 blocks away (slower)
 
 /* Water */
-#define NL_WATER_TRANSPARENCY 0.7 // 0.0 transparent ~ 1.0 normal
-#define NL_WATER_BUMP 0.07        // 0.001 plain ~ 0.2 bumpy water
+#define NL_WATER_TRANSPARENCY 0.4 // 0.0 transparent ~ 1.0 normal
+#define NL_WATER_BUMP 0.05        // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_WAVE_SPEED  0.4  // 0.2 calm ~ 2.0 turbulent
-#define NL_WATER_TEX_OPACITY 0.2  // 0.0 plain water ~ 1.0 vanilla water texture
+#define NL_WATER_TEX_OPACITY 0.6  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
 //#define NL_WATER_CLOUD_AURORA_REFLECTION // [toggle] simple clouds/aurora reflection
 //#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
