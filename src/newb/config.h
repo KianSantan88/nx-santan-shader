@@ -46,8 +46,8 @@
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
 
 /* Sun/moon light color on terrain */
-#define NL_MORNING_SUN_COL vec3(1.0, 0.63, 0.17)   // warmer orange-pink hue, matching the horizon glow
-#define NL_NOON_SUN_COL    vec3(1.0, 0.88, 0.4)    // richer golden midday light, balanced
+#define NL_MORNING_SUN_COL vec3(1.0, 0.62, 0.2)   // warmer orange-pink hue, matching the horizon glow
+#define NL_NOON_SUN_COL    vec3(1.0, 0.82, 0.4)    // richer golden midday light, balanced
 #define NL_NIGHT_SUN_COL   vec3(0.4,0.6,1.0)
 
 /* Ambient light on terrain (light that is added everywhere) */
@@ -76,8 +76,8 @@
 #define NL_END_ZENITH_COL    vec3(0.05,0.25,0.4875)
 #define NL_END_HORIZON_COL   vec3(0.05,0.25,0.4875)
 #define NL_DAWN_ZENITH_COL   vec3(0.015,0.045,0.1)
-#define NL_DAWN_HORIZON_COL  vec3(0.75,0.45,0.002)
-#define NL_DAWN_EDGE_COL     vec3(0.78,0.42,0.005)
+#define NL_DAWN_HORIZON_COL  vec3(0.95,0.45,0.002)
+#define NL_DAWN_EDGE_COL     vec3(0.98,0.42,0.005)
 /* Rainbow */
 //#define NL_RAINBOW         // [toggle] enable rainbow in sky
 #define NL_RAINBOW_CLEAR 0.0 // 0.3 subtle ~ 1.7 bright during clear
