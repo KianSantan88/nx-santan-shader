@@ -143,7 +143,7 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
   vec4 renderBlackhole(vec3 vdir, float t) {
   t *= NL_BH_SPEED;
 
-  float r = 2.5;
+  float r = 2.0;
   r += 0.0001*t;
   vec3 vr = vdir;
   // manual calculation
